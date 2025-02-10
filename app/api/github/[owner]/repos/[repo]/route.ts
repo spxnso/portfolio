@@ -1,15 +1,15 @@
-// app/api/repo/[owner]/[repo]/route.js
-
 import { NextRequest } from "next/server";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { slug: any } }
+  { params }: { params: { owner: string; repo: string } }
 ) {
-  const { username, repo } = params.slug;
-  console.log("Hello")
+  const { owner, repo } = params;
+  console.log("Hello");
+
   try {
-    const res = await fetch(`https://api.github.com/repos/${username}/${repo}`);
+    const res = await fetch(`https://api.github.com/repos/${owner}/${repo}`);
+
     if (!res.ok) {
       throw new Error("Failed to fetch repository data");
     }
