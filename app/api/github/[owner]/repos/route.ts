@@ -1,11 +1,10 @@
 // app/api/github/[owner]/repos/route.js
 
 
-export async function GET(req: Request, { params } : { params: Promise<{ slug: string }> } ) {
-  const { slug } = await params;
-  
+export async function GET(req: Request, { params } : { params: Promise<{ owner: string }> } ) {
+  const { owner } = await params;
   try {
-    const res = await fetch(`https://api.github.com/users/${slug}/repos`);
+    const res = await fetch(`https://api.github.com/users/${owner}/repos`);
     if (!res.ok) {
       throw new Error("Failed to fetch repository data");
     }
