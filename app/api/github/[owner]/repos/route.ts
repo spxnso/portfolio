@@ -1,9 +1,8 @@
 // app/api/github/[owner]/repos/route.js
 
-import { NextRequest } from "next/server";
 
-export async function GET(req: NextRequest, { params }: { params: { slug: string } }) {
-  const { slug } = await params; 
+export async function GET(req: Request, { params }: { params: { slug: string } } ) {
+  const slug = params.slug
   
   try {
     const res = await fetch(`https://api.github.com/users/${slug}/repos`);
