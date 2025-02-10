@@ -26,7 +26,7 @@ export async function generateStaticParams(): Promise<PostPageProps["params"][]>
   }));
 }
 
-export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: PostPageProps["params"] }): Promise<Metadata> {
   const post = await getPostFromParams(params);
 
   if (!post) {
@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   };
 }
 
-export default async function PostPage({ params }: PostPageProps) {
+export default async function PostPage({ params }: { params: PostPageProps["params"] }) {
   const post = await getPostFromParams(params);
   if (!post || !post.published) {
     notFound();
