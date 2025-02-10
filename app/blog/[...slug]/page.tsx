@@ -9,25 +9,26 @@ import { ArrowLeft } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 interface PostPageProps {
-  params: {
-    slug: string[];
-  };
+  params: Promise<{ slug: string[] }>;
 }
 
-async function getPostFromParams(params: PostPageProps["params"]) {
-  const slug = params?.slug.join("/");
+async function getPostFromParams(params: { slug: string[] }) {
+  const slug = params.slug.join("/");
   const post = posts.find((post) => post.slugAsParams === slug);
   return post;
 }
 
 export async function generateStaticParams(): Promise<PostPageProps["params"][]> {
-  return posts.map((post) => ({
-    slug: post.slugAsParams.split("/"),
-  }));
+  return posts.map((post) =>
+    Promise.resolve({
+      slug: post.slugAsParams.split("/"),
+    })
+  );
 }
 
 export async function generateMetadata({ params }: { params: PostPageProps["params"] }): Promise<Metadata> {
-  const post = await getPostFromParams(params);
+  const resolvedParams = await params;
+  const post = await getPostFromParams(resolvedParams);
 
   if (!post) {
     return {};
@@ -64,7 +65,8 @@ export async function generateMetadata({ params }: { params: PostPageProps["para
 }
 
 export default async function PostPage({ params }: { params: PostPageProps["params"] }) {
-  const post = await getPostFromParams(params);
+  const resolvedParams = await params;
+  const post = await getPostFromParams(resolvedParams);
   if (!post || !post.published) {
     notFound();
   }
