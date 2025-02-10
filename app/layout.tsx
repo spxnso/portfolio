@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/utils/navbar";
-import Footer from "@/components/utils/footer";
 import { siteConfig } from "@/lib/siteConfig";
 export const metadata: Metadata = {
   title: siteConfig.title,

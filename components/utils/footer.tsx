@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaDiscord } from "react-icons/fa"; // Example icons
 import { siteConfig } from "@/lib/siteConfig";
 import React from "react";
 
