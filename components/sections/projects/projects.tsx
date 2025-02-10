@@ -1,7 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { ProjectCard } from "./card";
 import { Marquee } from "@/components/magicui/marquee";
 import useRepos from "@/lib/hooks/useRepo";

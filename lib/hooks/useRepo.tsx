@@ -25,7 +25,7 @@ const useRepos = (username: string) => {
           sessionStorage.setItem(`repos-${username}`, JSON.stringify(data));
         }
       } catch (err) {
-        setError('Failed to fetch repositories');
+        setError(`Failed to fetch repositories: ${(err as Error).message}`);
       } finally {
         setLoading(false);
       }

@@ -8,7 +8,7 @@ export const siteConfig = {
   contactLink: "https://discordapp.com/users/1157544020143255614",
   about: (
     <p className="text-muted-foreground mt-3">
-      Hi, I'm spxnso — a passionate French developer who began coding at the age
+      Hi, I&apos;m spxnso — a passionate French developer who began coding at the age
       of twelve, starting with Scratch and Roblox games.
       <br />
       Fluent in both French and English, I collaborate effortlessly with teams

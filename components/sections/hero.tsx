@@ -17,7 +17,7 @@ export default function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    Hi, I'm {""}
+                    Hi, I&apos;m {""}
                     <span className="text-violet-800">{siteConfig.profile.username}</span>
                 </motion.h1>
                 <motion.p

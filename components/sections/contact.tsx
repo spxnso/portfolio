@@ -8,7 +8,7 @@ export default function ContactSection() {
       );
     return (
         <section id="contact" className="mt-16 max-w-2xl mb-16">
-            <h2 className="text-2xl font-bold">Let's Connect</h2>
+            <h2 className="text-2xl font-bold">Let&apos;s Connect</h2>
             <p className="text-gray-500 dark:text-gray-400 mt-3">
                 Feel free to reach out for collaborations, freelance work, or
                 just to say hi!
