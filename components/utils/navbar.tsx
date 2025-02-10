@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -99,45 +99,52 @@ export default function Navbar() {
                 </motion.button>
             </div>
 
-            {isMenuOpen && (
-                <motion.div
-                    className="absolute top-16 left-0 w-full border shadow-md bg-background/90 rounded-lg md:hidden"
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                >
-                    <ul className="flex flex-col items-center space-y-3 py-4">
-                        {["Home", "Projects", "Blog"].map((item) => (
-                            <li key={item}>
-                                <Link
-                                    href={item === "Home"
-                                        ? "/"
-                                        : `/${item.toLowerCase()}`}
-                                    className="block text-sm px-3 py-2 hover:text-violet-800 text-primary"
-                                >
-                                    {item}
-                                </Link>
-                            </li>
-                        ))}
-                        <div className="flex space-x-4">
-                            <li>
-                                <ThemeToggle />
-                            </li>
-                            <li>
-                                <Button
-                                    variant="outline"
-                                    className="h-8 px-3 text-sm rounded-lg text-primary"
-                                >
-                                    <Link href={siteConfig.contactLink}>
-                                        Get in touch
+
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <motion.div
+                        className="absolute top-16 left-0 w-full border shadow-md bg-background/90 rounded-lg md:hidden"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 20 }}
+                        transition={{
+                            duration: 0.3,
+                            ease: "easeInOut",
+                        }}
+                    >
+                        <ul className="flex flex-col items-center space-y-3 py-4">
+                            {["Home", "Projects", "Blog"].map((item) => (
+                                <li key={item}>
+                                    <Link
+                                        href={item === "Home"
+                                            ? "/"
+                                            : `/${item.toLowerCase()}`}
+                                        className="block text-sm px-3 py-2 hover:text-violet-800 text-primary"
+                                    >
+                                        {item}
                                     </Link>
-                                    <ArrowRight />
-                                </Button>
-                            </li>
-                        </div>
-                    </ul>
-                </motion.div>
-            )}
+                                </li>
+                            ))}
+                            <div className="flex space-x-4">
+                                <li>
+                                    <ThemeToggle />
+                                </li>
+                                <li>
+                                    <Button
+                                        variant="outline"
+                                        className="h-8 px-3 text-sm rounded-lg text-primary"
+                                    >
+                                        <Link href={siteConfig.contactLink}>
+                                            Get in touch
+                                        </Link>
+                                        <ArrowRight />
+                                    </Button>
+                                </li>
+                            </div>
+                        </ul>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </motion.nav>
     );
 }
