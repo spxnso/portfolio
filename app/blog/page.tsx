@@ -4,12 +4,12 @@ import { QueryPagination } from "@/components/query-pagination";
 import { sortPosts } from "@/lib/utils";
 import { Metadata } from "next";
 
-const POSTS_PER_PAGE = 4; // comment to depeeeeloy on vercel.
+const POSTS_PER_PAGE = 4;
 
 interface BlogPageProps {
-  searchParams: {
+  searchParams: Promise<{
     page?: string;
-  };
+  }>;
 }
 
 export const metadata: Metadata = {
@@ -18,7 +18,10 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
-  const currentPage = Number(searchParams?.page) || 1;
+  // Wait for the resolved value of searchParams
+  const { page } = await searchParams;
+  
+  const currentPage = Number(page) || 1;
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
   const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
   const displayPosts = sortedPosts.slice(
