@@ -2,11 +2,11 @@
 
 import { NextRequest } from "next/server";
 
-export async function GET(req: NextRequest, { params }: { params: { owner: string } }) {
-  const { owner } = await params; 
+export async function GET(req: NextRequest, { params }: { params: { slug: string } }) {
+  const { slug } = await params; 
   
   try {
-    const res = await fetch(`https://api.github.com/users/${owner}/repos`);
+    const res = await fetch(`https://api.github.com/users/${slug}/repos`);
     if (!res.ok) {
       throw new Error("Failed to fetch repository data");
     }
