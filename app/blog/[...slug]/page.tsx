@@ -9,7 +9,7 @@ import { ArrowLeft } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 interface PostPageProps {
-  params: Promise<{ slug: string[] }>;
+  params: Promise<{ slug: string[] }>; // theoe
 }
 
 async function getPostFromParams(params: { slug: string[] }) {
