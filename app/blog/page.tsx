@@ -4,7 +4,7 @@ import { QueryPagination } from "@/components/query-pagination";
 import { sortPosts } from "@/lib/utils";
 import { Metadata } from "next";
 
-const POSTS_PER_PAGE = 4; // comment to deploy on vercel.
+const POSTS_PER_PAGE = 4; // comment to depeeeeloy on vercel.
 
 interface BlogPageProps {
   searchParams: {
