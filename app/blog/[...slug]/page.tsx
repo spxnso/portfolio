@@ -73,7 +73,7 @@ export default async function PostPage({ params }: { params: PostPageProps["para
 
   return (
     <div>
-      <article className="container py-6 prose dark:prose-invert max-w-3xl mx-auto">
+      <article className="container py-6 px-4 md:px-6 prose dark:prose-invert max-w-3xl mx-auto">
         <Link href="/blog" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
           <ArrowLeft className="w-5 h-5" />
           <span>Back to Blog</span>

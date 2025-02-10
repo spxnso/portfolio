@@ -17,16 +17,15 @@ export const ProjectCard = ({
     description: string;
     name: string;
     link: string;
-    website?: { 
+    website?: {
         hasWebsite: boolean;
         link: string;
     };
 }) => {
-    console.log(img, description, name, website, link)
     return (
         <figure
             className={cn(
-                "relative w-full max-w-md cursor-pointer overflow-hidden rounded-xl border p-5",
+                "relative w-full max-w-xs sm:max-w-sm md:max-w-md cursor-pointer overflow-hidden rounded-xl border p-5",
                 "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
                 "dark:border-gray-50/[.1] dark:bg-background/[.10] dark:hover:bg-background/[.15]",
                 "flex flex-col justify-between",
@@ -48,7 +47,7 @@ export const ProjectCard = ({
             </div>
             <div className="flex gap-2">
                 <div className="mt-4 flex justify-start">
-                    <Link href={link && link || "nil"}>
+                    <Link href={link || "nil"}>
                         <Button
                             variant="outline"
                             className="px-4 py-2 text-sm text-primary rounded-md"
@@ -72,7 +71,6 @@ export const ProjectCard = ({
                     </div>
                 )}
             </div>
-
         </figure>
     );
 };

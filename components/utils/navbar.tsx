@@ -107,7 +107,7 @@ export default function Navbar() {
                     transition={{ duration: 0.3 }}
                 >
                     <ul className="flex flex-col items-center space-y-3 py-4">
-                        {["Home", "Dashboard", "Documentation"].map((item) => (
+                        {["Home", "Projects", "Blog"].map((item) => (
                             <li key={item}>
                                 <Link
                                     href={item === "Home"
