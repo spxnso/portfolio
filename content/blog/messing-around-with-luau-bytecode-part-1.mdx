@@ -1,0 +1,82 @@
+---
+title: Messing with Luau bytecode | Part 1
+description: Introduction of a series of articles covering the basics of Luau bytecode and how to manipulate it.
+date: 2025-02-14
+image: /static/luau-bc-cover.png
+published: true
+---
+
+Have you ever wondered how Luau scripts work? How they are executed? Well, this series of articles will cover the **basics of Luau bytecode and how to manipulate it**. This first part will cover the **basics of bytecode** and how to read it.
+
+
+I know that you might say: "Erm, I don&apos;t need to know how to read bytecode, I just need to know how to write scripts". But, knowing how to read bytecode can help you **understand how the scripts work** and **how to optimize** them or **deobfuscating scripts**.
+
+I&apos;ve recently got into back into Luau, my first scripting language after my Lua journey. I&apos;ve been Tinkering  with bytecode and I&apos;ve learned a lot of things. I&apos;ve decided to share my knowledge with you, so you can learn too.
+
+## What will be covered in this series?
+1. **Introduction to Luau bytecode**
+2. **Reading bytecode**
+4. **Interpreting bytecode**
+
+All the codes will be avalaible on my Github. I will provide the link at the end of the series.
+
+## What will we need?
+- [**Luau and it&apos;s ecosystem ( luau, luau-compile )**](https://github.com/luau-lang/luau/releases) to compile and execute scripts.
+- [**Lune**](https://lune-org.github.io/docs/getting-started/1-installation) to read files or compile them. 
+- **OPTIONAL: A hex editor for facilitating debugging**. 
+
+## What is bytecode?
+Bytecode is a **low-level representation of a script**. It is a **set of instructions** that the interpreter reads and executes. It is **faster** than interpreting the script directly because the interpreter doesn&apos;t need to parse the script every time it is executed.
+
+## Starting off
+To kick off, we will create a simple script that prints "Hello, World!".
+
+```lua
+print("Hello, World!")
+```
+
+Now, we will compile it using Luau.
+
+```bash
+luau-compile input.luau > output.luau
+```
+
+Let&apos;s see what it outputs:
+
+```bash
+Function 0 (??):
+    1: print("Hello, World!")
+GETIMPORT R0 1 [print]
+LOADK R1 K2 ['Hello, World!']
+CALL R0 1 0
+RETURN R0 0
+```
+
+I&apos;m pretty sure you are confused right now. Indeed, this is not **bytecode**. This is a formated version of the bytecode. But you might ask: "How do we get the actual bytecode?". Well, let me explain.
+
+The command we ran above outputs the bytecode in a human-readable format. To get the actual bytecode, we need to use the `--binary` flag.
+
+```bash
+luau-compile --binary input.luau > output.luau
+```
+
+Now, let&apos;s see what it outputs:
+
+```bash
+Hello, World!A
+@@
+```
+Pretty interesting, right? This is the actual bytecode. But, how do we read it? We&apos;ll cover that in the next part.
+
+For now, let me explain the structure of the bytecode.
+
+## A simple explanation to Luau&apos;s bytecode
+Luau&apos;s bytecode is constitued as following:
+- **Version**: Luau&apos;s version - 1 byte.
+- **Types Version**: The version of the types - 1 byte.
+- **String Counts** : The number of strings in the script - varInt.
+- **Strings**: The strings in the script - string. 
+- **Function Counts**: The number of functions in the script - varInt.
+- **Functions**: The functions in the script - proto.
+
+Many new words for you, huh? Don&apos;t worry, we will cover them in the next part. Stay tuned!

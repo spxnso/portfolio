@@ -15,6 +15,7 @@ interface PostPageProps {
 async function getPostFromParams(params: { slug: string[] }) {
   const slug = params.slug.join("/");
   const post = posts.find((post) => post.slugAsParams === slug);
+  console.log("Got post", post?.image)
   return post;
 }
 
@@ -81,6 +82,7 @@ export default async function PostPage({ params }: { params: PostPageProps["para
         
         <h1 className="mt-4 mb-2">{post.title}</h1>
         {post.description ? <p className="text-xl mt-0 text-muted-foreground">{post.description}</p> : null}
+        <img src={post.image} alt={post.title} className="w-full object-cover mt-4 rounded-lg border" />
         <Separator className="my-4" />
         <MDXContent code={post.body} />
       </article>
