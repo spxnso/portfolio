@@ -50,34 +50,16 @@ export const authorConfig = {
       icon: "/assets/numworks.jpg",
     },
     {
-      title: "numworks_env",
-      description: "Port of the NumWorks python environment for Python 3.x",
-      href: "/projects/numworks_env",
-      icon: "/assets/numworks.jpg",
+      title: "Telemetry-Deactivation-Scripts",
+      description: "Easy telemetry deactivation for Windows 11 ",
+      href: "/projects/tds",
     },
     {
-      title: "numworks_env",
-      description: "Port of the NumWorks python environment for Python 3.x",
-      href: "/projects/numworks_env",
-      icon: "/assets/numworks.jpg",
-    },
-    {
-      title: "numworks_env",
-      description: "Port of the NumWorks python environment for Python 3.x",
-      href: "/projects/numworks_env",
-      icon: "/assets/numworks.jpg",
-    },
-    {
-      title: "numworks_env",
-      description: "Port of the NumWorks python environment for Python 3.x",
-      href: "/projects/numworks_env",
-      icon: "/assets/numworks.jpg",
-    },
-    {
-      title: "numworks_env",
-      description: "Port of the NumWorks python environment for Python 3.x",
-      href: "/projects/numworks_env",
-      icon: "/assets/numworks.jpg",
+      title: "crackmes.one",
+      description:
+        "This repo contains my personal solutions to public challenges hosted on crackmes.one.",
+      href: "/projects/crackmes.one",
+      icon: "https://github.com/spxnso/crackmes.one/raw/master/assets/crackmes-logo.png",
     },
   ],
 };

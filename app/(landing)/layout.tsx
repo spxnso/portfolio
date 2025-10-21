@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import Navbar from "./components/navbar";
+import Navbar from "../../components/utils/navbar";
 
 export interface LandingLayoutProps {
   children: ReactNode;
