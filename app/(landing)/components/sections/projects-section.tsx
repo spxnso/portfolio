@@ -1,14 +1,13 @@
-import Image from "next/image";
 import { authorConfig } from "@/config/author";
-import { LuExternalLink } from "react-icons/lu";
-import { FaGithub } from "react-icons/fa";
-import { SectionHeading } from "../section-heading";
+import Icons from "@/components/utils/icons";
+import SectionHeading from "../section-heading";
 import Link from "next/link";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 export default function ProjectsSection() {
   return (
-    <section className="flex flex-col px-6 lg:px-8 max-w-6xl mx-auto gap-8 text-left">
+    <section className="flex flex-col gap-8 text-left">
       <SectionHeading
         eyebrow="Highlighted projects"
         title="What I've worked on"
@@ -29,11 +28,11 @@ export default function ProjectsSection() {
           >
             <Link
               href={project.href}
-              className="group relative flex flex-col sm:flex-row items-start gap-3 p-4 rounded-lg border border-border
+              className="group relative flex flex-col sm:flex-row items-start gap-3 p-4 rounded-md border border-border
             hover:bg-primary/10 hover:border-primary transform hover:scale-105 transition-all duration-300 w-full max-w-md sm:max-w-none mx-auto"
             >
               <span className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-primary font-bold">
-                <LuExternalLink />
+                <Icons.ExternalLink />
               </span>
 
               <div className="rounded-sm overflow-hidden">
@@ -47,7 +46,7 @@ export default function ProjectsSection() {
                   />
                 ) : (
                   <div className="w-12 h-12 flex items-center justify-center bg-muted rounded-sm">
-                    <FaGithub className="text-foreground w-6 h-6" />
+                    <Icons.Github className="text-foreground w-6 h-6" />
                   </div>
                 )}
               </div>
@@ -76,7 +75,7 @@ export default function ProjectsSection() {
           className="flex items-center gap-2 hover:text-primary text-sm sm:text-base"
         >
           View all my projects
-          <LuExternalLink className="w-4 h-4" />
+          <Icons.ExternalLink className="w-4 h-4" />
         </Link>
       </motion.div>
     </section>

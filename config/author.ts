@@ -1,45 +1,45 @@
-import {
-  FaDiscord,
-  FaGithub,
-  FaLinkedin,
-  FaNpm,
-  FaSteam,
-} from "react-icons/fa";
-import { FaSignalMessenger } from "react-icons/fa6";
+// TODO: Remove this
+import Icons from "@/components/utils/icons";
 
 export const authorConfig = {
   name: "Evann Borde",
   username: "spxnso",
+  avatar: "https://avatars.githubusercontent.com/u/74740915?v=4",
+  tagline: "Student and cybersecurity enthusiast",
+  job: "Student",
+  location: "Saint-Martin-De-Crau, France",
+  email: "contact@spxnso.dev",
+  bio: `I'm Evann Borde, also known as spxnso, a student and aspiring cybersecurity engineer from France. Passionate about technology and digital creation, I'm constantly learning and exploring new fields to strengthen my skills and broaden my knowledge in cybersecurity, software development, and IT.`,
   socials: [
     {
       name: "Github",
       href: "https://github.com/spxnso",
-      icon: FaGithub,
+      icon: Icons.Github,
     },
     {
       name: "Linkedin",
       href: "https://linkedin.com/in/spxnso",
-      icon: FaLinkedin,
+      icon: Icons.Linkedin,
     },
     {
       name: "Discord",
       href: "https://discordapp.com/users/1157544020143255614/",
-      icon: FaDiscord,
+      icon: Icons.Discord,
     },
     {
       name: "Signal",
       href: "https://signal.me/#u/spxnso.144",
-      icon: FaSignalMessenger,
+      icon: Icons.Signal,
     },
     {
       name: "Steam",
       href: "https://steamcommunity.com/profiles/76561199469207096/",
-      icon: FaSteam,
+      icon: Icons.Steam,
     },
     {
       name: "npm",
       href: "https://www.npmjs.com/~spxnso",
-      icon: FaNpm,
+      icon: Icons.Npm,
     },
   ],
   projects: [
@@ -47,7 +47,7 @@ export const authorConfig = {
       title: "numworks_env",
       description: "Port of the NumWorks python environment for Python 3.x",
       href: "/projects/numworks_env",
-      icon: "/assets/numworks.jpg",
+      icon: "https://res.cloudinary.com/dr0l0tlm2/image/upload/v1761298114/numworks_zcsemf.jpg",
     },
     {
       title: "Telemetry-Deactivation-Scripts",

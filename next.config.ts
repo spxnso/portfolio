@@ -5,11 +5,19 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "github.com",
+        hostname: "avatars.githubusercontent.com",
         port: "",
-        pathname: "/spxnso/**",
+        pathname: "/u/**",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        port: "",
+      },
+      { hostname: "res.cloudinary.com" },
+      { hostname: "github.com" },
     ],
+    qualities: [75, 80, 90, 100],
   },
 };
 

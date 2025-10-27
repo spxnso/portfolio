@@ -1,0 +1,63 @@
+import { Menu } from "lucide-react";
+import {
+  FaCalendar,
+  FaCheck,
+  FaChevronDown,
+  FaChevronUp,
+  FaClock,
+  FaComment,
+  FaCopy,
+  FaDiscord,
+  FaExternalLinkAlt,
+  FaFileCode,
+  FaFolderOpen,
+  FaGithub,
+  FaLinkedin,
+  FaNpm,
+  FaQuestion,
+  FaSearch,
+  FaSteam,
+  FaUser,
+  FaUserSecret,
+  FaYoutube,
+} from "react-icons/fa";
+import { FaNoteSticky, FaSignalMessenger, FaXmark } from "react-icons/fa6";
+import {
+  IoIosAlert,
+  IoIosWarning,
+  IoIosCheckmarkCircle,
+  IoIosInformationCircle,
+} from "react-icons/io";
+
+const Icons = {
+  Github: FaGithub,
+  Discord: FaDiscord,
+  Linkedin: FaLinkedin,
+  Npm: FaNpm,
+  Steam: FaSteam,
+  Signal: FaSignalMessenger,
+  ExternalLink: FaExternalLinkAlt,
+  Youtube: FaYoutube,
+  Calendar: FaCalendar,
+  Clock: FaClock,
+  Search: FaSearch,
+  Check: FaCheck,
+  ChevronDown: FaChevronDown,
+  ChevronUp: FaChevronUp,
+  Menu,
+  X: FaXmark,
+  Note: FaNoteSticky,
+  User: FaUser,
+  FolderOpen: FaFolderOpen,
+  UserSecret: FaUserSecret,
+  FileCode: FaFileCode,
+  Copy: FaCopy,
+  Comment: FaComment,
+  Question: FaQuestion,
+  Warning: IoIosWarning,
+  Alert: IoIosAlert,
+  Info: IoIosInformationCircle,
+  CheckCircle: IoIosCheckmarkCircle,
+};
+
+export default Icons;

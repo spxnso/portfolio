@@ -1,14 +1,14 @@
-import { FaUser, FaFolderOpen, FaUserSecret } from "react-icons/fa";
-import { FaNoteSticky } from "react-icons/fa6";
+// TODO: Remove this aswell
+import Icons from "@/components/utils/icons";
 
 export const landingConfig = {
   navbar: {
     title: "spxnso",
     items: [
-      { title: "About", icon: FaUser, href: "about" },
-      { title: "Projects", icon: FaFolderOpen, href: "projects" },
-      { title: "Blog", icon: FaNoteSticky, href: "blog" },
-      { title: "Guestbook", icon: FaUserSecret, href: "guestbook" },
+      { title: "About", icon: Icons.User, href: "about" },
+      { title: "Projects", icon: Icons.FolderOpen, href: "projects" },
+      { title: "Blog", icon: Icons.Note, href: "blog" },
+      { title: "Guestbook", icon: Icons.UserSecret, href: "guestbook" },
     ],
   },
   hero: {

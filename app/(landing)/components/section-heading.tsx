@@ -1,12 +1,12 @@
 import { TextAnimate } from "@/components/ui/text-animate";
 
-interface SectionHeadingProps {
+export interface SectionHeadingProps {
   eyebrow?: string;
   title: string;
   className?: string;
 }
 
-export function SectionHeading({
+export default function SectionHeading({
   eyebrow,
   title,
   className,

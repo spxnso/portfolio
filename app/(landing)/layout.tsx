@@ -1,17 +1,16 @@
-import type { ReactNode } from "react";
-import Navbar from "../../components/utils/navbar";
+import Navbar from "@/components/utils/navbar";
 
-export interface LandingLayoutProps {
-  children: ReactNode;
+interface LandingLayoutProps {
+  children: React.ReactNode;
 }
 
 export default function LandingLayout({ children }: LandingLayoutProps) {
   return (
-    <div>
+    <>
       <Navbar />
-      <div className="flex min-h-[100dvh] flex-col bg-background sm:px-24 lg:px-48 py-32 gap-16">
+      <div className="flex min-h-[100dvh] flex-col bg-background py-16 gap-16 px-6 lg:px-8 max-w-6xl mx-auto">
         {children}
       </div>
-    </div>
+    </>
   );
 }

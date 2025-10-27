@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
-import { FaGithub } from "react-icons/fa";
+import Icons from "@/components/utils/icons";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 
@@ -24,7 +24,7 @@ export default function ComingSoon() {
             rel="noopener noreferrer"
             className="flex items-center gap-2"
           >
-            <FaGithub className="w-4 h-4" />
+            <Icons.Github className="w-4 h-4" />
             See my GitHub
           </Link>
         </Button>
