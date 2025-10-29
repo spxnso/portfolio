@@ -4,7 +4,7 @@ export const siteConfig = {
   description: "Student and aspiring cybersecurity engineer",
   keywords: [
     "spxnso",
-    "Overflxw",
+    "sphexa",
     "cybersecurity",
     "web development",
     "software development",

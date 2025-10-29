@@ -1,7 +1,26 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        port: "",
+        pathname: "/u/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        port: "",
+      },
+      { hostname: "res.cloudinary.com" },
+      { hostname: "github.com" },
+      { hostname: "img.youtube.com" },
+      { hostname: "cdn.simpleicons.org" },
+    ],
+    qualities: [75, 80, 90, 100],
+  },
 };
 
 export default nextConfig;

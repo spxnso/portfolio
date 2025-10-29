@@ -16,7 +16,6 @@ export default async function Icon() {
         className="w-full h-full object-cover rounded-full"
         style={{
           borderRadius: "50%",
-          border: "2px solid green",
         }}
       />
     ),
