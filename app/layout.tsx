@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { siteConfig } from "@/config/site";
 import { Providers } from "./providers";
+import { SanityLive } from "@/lib/sanity.live";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>{children}</Providers>
+        <SanityLive />
       </body>
     </html>
   );
