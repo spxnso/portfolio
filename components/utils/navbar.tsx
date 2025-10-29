@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { landingConfig } from "@/config/landing";
 import { Button } from "@/components/ui/button";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
@@ -15,14 +15,27 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import Image from "next/image";
-
+import Image from "./image";
+import { usePathname } from "next/navigation";
 export interface NavbarItemProps {
   title: string;
   href: string;
 }
 
+export function NavbarUserDisplay() {
+  return (
+    <div className="w-9 h-9 relative">
+      <Image
+        src="https://avatars.githubusercontent.com/u/146754550?v=4"
+        alt="spxnso"
+        className="rounded-full"
+      />
+    </div>
+  );
+}
+
 export default function Navbar() {
+  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
@@ -31,32 +44,30 @@ export default function Navbar() {
   return (
     <nav className="w-full border-b bg-background/80 backdrop-blur-md z-40">
       <div className="max-w-6xl mx-auto flex items-center justify-between h-[70px] px-6 lg:px-8">
-        {/* Left: Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <Image
-            src="https://avatars.githubusercontent.com/u/146754550?v=4"
-            alt="spxnso"
-            width={36}
-            height={36}
-            className="rounded-full"
-          />
+          <NavbarUserDisplay />
           <span className="text-foreground text-base font-medium">spxnso</span>
         </Link>
 
-        {/* Center: Nav links (desktop) */}
         <div className="hidden lg:flex items-center gap-8">
-          {landingConfig.navbar.items.map((item: NavbarItemProps) => (
-            <Link
-              key={item.title}
-              href={item.href}
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
-            >
-              {item.title}
-            </Link>
-          ))}
+          {landingConfig.navbar.items.map((item: NavbarItemProps) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.title}
+                href={item.href}
+                className={`text-sm font-medium transition-colors ${
+                  isActive
+                    ? "text-primary"
+                    : "text-foreground hover:text-primary"
+                }`}
+              >
+                {item.title}
+              </Link>
+            );
+          })}
         </div>
 
-        {/* Right: theme + mobile menu */}
         <div className="flex items-center gap-2">
           <AnimatedThemeToggler />
           <div className="lg:hidden">
@@ -78,19 +89,13 @@ export default function Navbar() {
 
                 <div className="pt-8 pl-8 pr-8 flex justify-between items-center">
                   <Link href="/" className="flex items-center gap-2">
-                    <Image
-                      src="https://avatars.githubusercontent.com/u/146754550?v=4"
-                      alt="spxnso"
-                      width={36}
-                      height={36}
-                      className="rounded-full"
-                    />
+                    <NavbarUserDisplay />
                     <span className="text-foreground font-medium">spxnso</span>
                   </Link>
 
                   <SheetClose asChild>
                     <Button variant="outline" size="icon" aria-label="Close">
-                      <Icons.X />
+                      <Icons.XMark />
                     </Button>
                   </SheetClose>
                 </div>
@@ -98,14 +103,25 @@ export default function Navbar() {
                 <div className="mt-6 flex flex-col px-4 divide-y divide-muted">
                   {landingConfig.navbar.items.map((item) => {
                     const Icon = item.icon;
+                    const isActive = pathname === item.href;
                     return (
                       <Link
                         key={item.title}
                         href={item.href}
-                        className="flex items-center gap-3 font-medium text-foreground py-4 hover:text-primary transition-colors"
+                        className={`flex items-center gap-3 font-medium text-foreground py-4 hover:text-primary transition-colors ${
+                          isActive
+                            ? "text-primary"
+                            : "text-foreground hover:text-primary"
+                        }`}
                       >
                         {Icon && (
-                          <Icon className="w-4 h-4 text-muted-foreground" />
+                          <Icon
+                            className={`w-4 h-4 ${
+                              isActive
+                                ? "text-primary"
+                                : "text-muted-foreground"
+                            }`}
+                          />
                         )}
                         {item.title}
                       </Link>

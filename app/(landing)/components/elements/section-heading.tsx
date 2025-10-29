@@ -1,4 +1,4 @@
-import { TextAnimate } from "@/components/ui/text-animate";
+import { TextAnimate } from "@/components/animations/text-animate";
 
 export interface SectionHeadingProps {
   eyebrow?: string;
@@ -25,7 +25,7 @@ export default function SectionHeading({
       <TextAnimate
         animation="fadeIn"
         by="character"
-        as="h2"
+        as="h1"
         className="text-3xl sm:text-4xl font-bold"
       >
         {title}

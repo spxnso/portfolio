@@ -58,7 +58,7 @@ export const AnimatedThemeToggler = ({
       Math.max(top, window.innerHeight - top),
     );
 
-    document.documentElement.animate(
+    const animation = document.documentElement.animate(
       {
         clipPath: [
           `circle(0px at ${x}px ${y}px)`,
@@ -71,8 +71,10 @@ export const AnimatedThemeToggler = ({
         pseudoElement: "::view-transition-new(root)",
       },
     );
+    animation.onfinish = () => {
+      window.location.reload();
+    };
   }, [isDark, duration]);
-
   return (
     <button
       ref={buttonRef}

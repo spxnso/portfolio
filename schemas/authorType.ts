@@ -80,6 +80,41 @@ export const authorType = defineType({
       description: "Optional personal website or portfolio link.",
       type: "url",
     }),
+
+    defineField({
+      name: "socials",
+      title: "Social Links",
+      type: "array",
+      of: [
+        defineArrayMember({
+          name: "social",
+          type: "object",
+          fields: [
+            {
+              name: "platform",
+              title: "Platform",
+              type: "string",
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "url",
+              title: "URL",
+              type: "url",
+              validation: (Rule) => Rule.required(),
+            },
+          ],
+          preview: {
+            select: { title: "platform", subtitle: "url" },
+            prepare({ title, subtitle }) {
+              return {
+                title,
+                subtitle,
+              };
+            },
+          },
+        }),
+      ],
+    }),
   ],
   preview: {
     select: {

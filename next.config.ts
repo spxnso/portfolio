@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
       },
       { hostname: "res.cloudinary.com" },
       { hostname: "github.com" },
+      { hostname: "img.youtube.com" },
     ],
     qualities: [75, 80, 90, 100],
   },

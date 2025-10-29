@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 import { sanityFetch } from "./sanity.live";
-import { PostType, ProjectType } from "@/types";
+import { PostType, ProjectType, AuthorType } from "@/types";
 
 // TODO: Category
 
@@ -29,6 +29,7 @@ const postData = `{
     location,
     email,
     website,
+    socials
   },
   featured,
   tags,
@@ -66,17 +67,30 @@ export const getPosts = async () => {
 };
 
 export async function getFeaturedPosts() {
-  return sanityFetch({
+  const result = await sanityFetch({
     query: featuredPostsQuery,
     tags: ["post"],
   });
+  return result.data as PostType[];
+}
+
+export async function getPostsByTag(postTag: string) {
+  const result = await sanityFetch({
+    query: postQueryByTag,
+    params: { postTag },
+    tags: ["post"],
+  });
+
+  return result.data as PostType[];
 }
 
 export async function getRecentPosts() {
-  return sanityFetch({
+  const result = await sanityFetch({
     query: recentPostsQuery,
     tags: ["post"],
   });
+
+  return result.data as PostType[];
 }
 
 export const getPostBySlug = async (slug: string) => {
@@ -109,14 +123,6 @@ export const getPostsByAuthor = async (slug: string) => {
   return result.data as PostType[];
 };
 
-export async function getPostsByTag(postTag: string) {
-  return sanityFetch({
-    query: postQueryByTag,
-    params: { postTag },
-    tags: ["post"],
-  });
-}
-
 const projectData = `{
   _id,
   name,
@@ -124,6 +130,11 @@ const projectData = `{
   "slug": slug.current,
   featured,
   coverImage{
+    "image": asset->url,
+    "lqip": asset->metadata.lqip,
+    alt,
+  },
+  icon{
     "image": asset->url,
     "lqip": asset->metadata.lqip,
     alt,
@@ -143,6 +154,7 @@ const projectData = `{
     location,
     email,
     website,
+    socials,
   },
   tags,
   github,
@@ -150,7 +162,7 @@ const projectData = `{
   body
 }`;
 
-export const projectQuery = groq`*[_type == "project"] | order(_createdAt desc) ${projectData}`;
+export const projectsQuery = groq`*[_type == "project"] | order(_createdAt desc) ${projectData}`;
 export const featuredProjectsQuery = groq`*[_type == "project" && featured == true] | order(_createdAt desc) ${projectData}`;
 export const projectQueryBySlug = groq`*[_type == "project" && slug.current == $slug][0] ${projectData}`;
 export const projectQueryByAuthor = groq`*[_type == "project" && author->slug.current == $slug] ${projectData}`;
@@ -160,7 +172,7 @@ export const projectQueryByTag = groq`
 
 export const getProjects = async () => {
   const result = await sanityFetch({
-    query: projectQuery,
+    query: projectsQuery,
     params: {},
     tags: ["project"],
   });
@@ -204,4 +216,70 @@ export const getProjectsByTag = async (projectTag: string) => {
   });
 
   return result.data as ProjectType[];
+};
+
+const authorData = `{
+  _id,
+  name,
+  username,
+  avatar {
+    "image": asset->url,
+    "lqip": asset->metadata.lqip,
+    alt,
+  },
+  tagline,
+  bio,
+  job,
+  location,
+  email,
+  website,
+  socials,
+}`;
+
+export const authorsQuery = groq`*[_type == "author"] | order(name asc) ${authorData}`;
+
+export const authorQueryById = groq`*[_type == "author" && _id == $id][0] ${authorData}`;
+
+export const authorQueryByUsername = groq`*[_type == "author" && username == $username][0] ${authorData}`;
+
+export const authorsQueryByLocation = groq`*[_type == "author" && location == $location] | order(name asc) ${authorData}`;
+
+export const getAuthors = async () => {
+  const result = await sanityFetch({
+    query: authorsQuery,
+    params: {},
+    tags: ["author"],
+  });
+
+  return result.data as AuthorType[];
+};
+
+export const getAuthorById = async (id: string) => {
+  const result = await sanityFetch({
+    query: authorQueryById,
+    params: { id },
+    tags: ["author"],
+  });
+
+  return result.data as AuthorType;
+};
+
+export const getAuthorByUsername = async (username: string) => {
+  const result = await sanityFetch({
+    query: authorQueryByUsername,
+    params: { username },
+    tags: ["author"],
+  });
+
+  return result.data as AuthorType;
+};
+
+export const getAuthorsByLocation = async (location: string) => {
+  const result = await sanityFetch({
+    query: authorsQueryByLocation,
+    params: { location },
+    tags: ["author"],
+  });
+
+  return result.data as AuthorType[];
 };

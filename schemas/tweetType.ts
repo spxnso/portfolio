@@ -5,7 +5,7 @@ export const tweetType = defineType({
   name: "tweet",
   title: "Tweet Embed",
   type: "object",
-  icon: Icons.X,
+  icon: Icons.XMark,
   fields: [
     defineField({
       name: "url",

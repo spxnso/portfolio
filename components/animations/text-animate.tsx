@@ -2,7 +2,7 @@
 
 import { ElementType, memo } from "react";
 import { AnimatePresence, motion, MotionProps, Variants } from "motion/react";
-
+import H1 from "../elements/h1";
 import { cn } from "@/lib/utils";
 
 type AnimationType = "text" | "word" | "character" | "line";
@@ -317,7 +317,12 @@ const TextAnimateBase = ({
   accessible = true,
   ...props
 }: TextAnimateProps) => {
-  const MotionComponent = motion.create(Component);
+  const componentMap: Record<string, typeof Component> = {
+    h1: H1,
+  };
+
+  const CustomComponent = componentMap[Component as string] || Component;
+  const MotionComponent = motion.create(CustomComponent);
 
   let segments: string[] = [];
   switch (by) {

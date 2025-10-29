@@ -12,12 +12,14 @@ export default function CustomPortableYoutube({
 }: CustomPortableYoutubeProps) {
   const id = getYoutubeVideoId(value.url);
   return (
-    <HeroVideoDialog
-      className="block"
-      animationStyle="from-center"
-      videoSrc={`https://youtube.com/embed/${id}`}
-      thumbnailSrc={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}
-      thumbnailAlt="Hero Video"
-    />
+    <div className="w-full">
+      <HeroVideoDialog
+        className="block"
+        animationStyle="from-center"
+        videoSrc={`https://youtube.com/embed/${id}`}
+        thumbnailSrc={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}
+        thumbnailAlt="Hero Video"
+      />
+    </div>
   );
 }

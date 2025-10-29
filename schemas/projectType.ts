@@ -7,7 +7,6 @@ export const projectType = defineType({
   description: "Schema defining a portfolio project entry.",
   type: "document",
   icon: Icons.FolderOpen,
-
   fields: [
     defineField({
       name: "name",
@@ -40,6 +39,14 @@ export const projectType = defineType({
       description: "Add this project to the list of feature projects.",
       validation: (Rule) => Rule.required(),
       initialValue: false,
+    }),
+    defineField({
+      name: "icon",
+      title: "Icon",
+      description:
+        "Icon representing this project (shown in portfolio grid or header).",
+      type: "image",
+      options: { hotspot: true },
     }),
     defineField({
       name: "coverImage",
@@ -88,4 +95,10 @@ export const projectType = defineType({
       type: "blockContent",
     }),
   ],
+  preview: {
+    select: {
+      title: "name",
+      media: "coverImage",
+    },
+  },
 });

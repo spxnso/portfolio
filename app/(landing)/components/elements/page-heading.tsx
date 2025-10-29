@@ -1,4 +1,5 @@
-import { TextAnimate } from "@/components/ui/text-animate";
+"use client";
+import { TextAnimate } from "@/components/animations/text-animate";
 
 export interface PageHeadingProps {
   title: string;
@@ -22,7 +23,7 @@ export default function PageHeading({ title, description }: PageHeadingProps) {
           animation="fadeIn"
           by="line"
           as="p"
-          className="text-sm sm:text-base text-muted-foreground text-justify leading-relaxed"
+          className="text-sm sm:text-base text-muted-foreground"
         >
           {description}
         </TextAnimate>

@@ -1,8 +1,9 @@
 import Icons from "@/components/utils/icons";
 import { PostType } from "@/types";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "@/components/utils/image";
 import { formatDate } from "@/lib/utils";
+import P from "@/components/elements/p";
 
 export interface PostCardProps {
   post: PostType;
@@ -13,13 +14,11 @@ export default function PostCard({ post }: PostCardProps) {
     <Link href={`/blog/${post.slug}`}>
       <article
         key={post.title}
-        className="group flex flex-col overflow-hidden rounded-md border border-border  hover:shadow-lg transition-all duration-200"
+        className="group flex flex-col h-full overflow-hidden rounded-md border border-border hover:shadow-lg transition-all duration-200"
       >
-        <div className="w-full h-48 overflow-hidden border-b border-border">
+        <div className="w-full h-48 overflow-hidden border-b border-border relative">
           <Image
             src={post.coverImage.image}
-            width={120}
-            height={120}
             alt={post.coverImage.alt as string}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
@@ -29,9 +28,7 @@ export default function PostCard({ post }: PostCardProps) {
           <h3 className="text-lg font-semibold leading-tight group-hover:text-primary transition-colors">
             {post.title}
           </h3>
-          <p className="text-sm text-muted-foreground line-clamp-3">
-            {post.excerpt}
-          </p>
+          <P>{post.excerpt}</P>
 
           <div className="flex items-center gap-2 text-xs text-muted-foreground mt-auto pt-3 border-t border-border/50">
             <span className="flex items-center gap-1">

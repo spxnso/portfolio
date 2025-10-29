@@ -8,20 +8,31 @@ import {
   FaComment,
   FaCopy,
   FaDiscord,
+  FaEnvelope,
   FaExternalLinkAlt,
+  FaFacebook,
   FaFileCode,
   FaFolderOpen,
   FaGithub,
+  FaHome,
+  FaLink,
   FaLinkedin,
   FaNpm,
   FaQuestion,
+  FaReddit,
   FaSearch,
   FaSteam,
   FaUser,
   FaUserSecret,
+  FaWhatsapp,
   FaYoutube,
 } from "react-icons/fa";
-import { FaNoteSticky, FaSignalMessenger, FaXmark } from "react-icons/fa6";
+import {
+  FaNoteSticky,
+  FaSignalMessenger,
+  FaXmark,
+  FaXTwitter,
+} from "react-icons/fa6";
 import {
   IoIosAlert,
   IoIosWarning,
@@ -36,6 +47,12 @@ const Icons = {
   Npm: FaNpm,
   Steam: FaSteam,
   Signal: FaSignalMessenger,
+  X: FaXTwitter,
+  Facebook: FaFacebook,
+  Whatsapp: FaWhatsapp,
+  Reddit: FaReddit,
+  Envelope: FaEnvelope,
+  Link: FaLink,
   ExternalLink: FaExternalLinkAlt,
   Youtube: FaYoutube,
   Calendar: FaCalendar,
@@ -45,7 +62,7 @@ const Icons = {
   ChevronDown: FaChevronDown,
   ChevronUp: FaChevronUp,
   Menu,
-  X: FaXmark,
+  XMark: FaXmark,
   Note: FaNoteSticky,
   User: FaUser,
   FolderOpen: FaFolderOpen,
@@ -58,6 +75,16 @@ const Icons = {
   Alert: IoIosAlert,
   Info: IoIosInformationCircle,
   CheckCircle: IoIosCheckmarkCircle,
+  Home: FaHome,
 };
+
+export function ResolveIconByName(name: string) {
+  const Icon = Icons[name as keyof typeof Icons];
+  if (!Icon) {
+    console.warn(`Icon not found: ${name}`);
+    return () => null;
+  }
+  return Icon;
+}
 
 export default Icons;

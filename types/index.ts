@@ -24,11 +24,15 @@ export type AuthorType = {
   location: string;
   email?: string;
   website?: string;
+  socials: {
+    platform: string;
+    url: string;
+  }[];
 };
 
 export type PostType = {
-  image: string | Blob | undefined;
   _id: string;
+  image: string | Blob | undefined;
   title: string;
   excerpt: string;
   coverImage: ImageType;
@@ -50,6 +54,11 @@ export type ProjectType = {
   slug: string;
   featured: boolean;
   coverImage: {
+    image: string;
+    alt: string | null;
+    lqip: string;
+  };
+  icon: {
     image: string;
     alt: string | null;
     lqip: string;

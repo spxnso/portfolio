@@ -1,5 +1,5 @@
 import { PortableTextComponents } from "@portabletext/react";
-import { Highlighter } from "@/components/ui/highlighter";
+import { Highlighter } from "@/components/animations/highlighter";
 import Link from "next/link";
 import CustomPortableCodeBlock from "./sanity-code-block";
 import { slugify } from "@/lib/utils";
@@ -52,8 +52,10 @@ const CustomPortableText: PortableTextComponents = {
       </h4>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="text-base sm:text-lg border-l-2 border-muted-foreground pl-4 italic my-6 text-muted-foreground">
+      <blockquote className="text-base sm:text-lg border-l-2 border-primary pl-4 italic my-6 text-primary">
+        {`"`}
         {children}
+        {`"`}
       </blockquote>
     ),
   },
