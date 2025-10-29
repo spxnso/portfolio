@@ -33,7 +33,7 @@
 
 ## Overview
 
-![screenshot](./public/assets/pc-preview.png)
+![screenshot](./public/assets/preview.png)
 
 ## How To Use
 
