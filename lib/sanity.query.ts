@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 import { sanityFetch } from "./sanity.live";
-import { PostType, ProjectType, AuthorType } from "@/types";
+import { PostType, ProjectType, AuthorType, AboutType } from "@/types";
 
 // TODO: Category
 
@@ -229,6 +229,7 @@ const authorData = `{
   },
   tagline,
   bio,
+  traits,
   job,
   location,
   email,
@@ -282,4 +283,31 @@ export const getAuthorsByLocation = async (location: string) => {
   });
 
   return result.data as AuthorType[];
+};
+
+const aboutData = `{
+  _id,
+  profileImage {
+    "image": asset->url,
+    "lqip": asset->metadata.lqip,
+    alt,
+  },
+  resume {
+    "url": asset->url
+  },
+  languages,
+  frameworks,
+  tools,
+  pageContent
+}`;
+
+export const aboutQuery = groq`*[_type == "about"][0] ${aboutData}`;
+
+export const getAbout = async () => {
+  const result = await sanityFetch({
+    query: aboutQuery,
+    tags: ["about"],
+  });
+
+  return result.data as AboutType;
 };

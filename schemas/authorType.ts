@@ -52,6 +52,13 @@ export const authorType = defineType({
     }),
 
     defineField({
+      name: "traits",
+      title: "Traits",
+      type: "array",
+      of: [{ type: "string" }],
+    }),
+
+    defineField({
       name: "job",
       title: "Job",
       description: "Job of the author.",

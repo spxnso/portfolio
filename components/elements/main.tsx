@@ -8,10 +8,7 @@ export default function Main({
 }: HTMLAttributes<HTMLElement>) {
   return (
     <main
-      className={cn(
-        "w-full max-w-4xl mx-auto px-4 sm:px-5 flex flex-col gap-8",
-        className,
-      )}
+      className={cn("w-full max-w-4xl flex flex-col gap-8", className)}
       {...props}
     >
       {children}

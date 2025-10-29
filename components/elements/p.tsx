@@ -7,10 +7,7 @@ export default function P({
   ...props
 }: HTMLAttributes<HTMLElement>) {
   return (
-    <p
-      className={cn("text-sm text-muted-foreground line-clamp-3", className)}
-      {...props}
-    >
+    <p className={cn("text-sm text-muted-foreground", className)} {...props}>
       {children}
     </p>
   );

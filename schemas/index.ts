@@ -7,6 +7,7 @@ import { quizType } from "./quizType";
 import { tweetType } from "./tweetType";
 import { calloutType } from "./calloutType";
 import { youtubeType } from "./youtubeType";
+import { aboutType, techItemType } from "./aboutType";
 
 export const schemaTypes = [
   postType,
@@ -18,4 +19,6 @@ export const schemaTypes = [
   tweetType,
   calloutType,
   youtubeType,
+  aboutType,
+  techItemType,
 ];

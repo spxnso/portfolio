@@ -13,6 +13,7 @@ import { apiVersion, dataset, projectId } from "@/lib/env";
 import { sanityTheme } from "@/lib/sanity.theme";
 
 import { schemaTypes } from "./schemas";
+import { sanityStructure } from "./lib/sanity.structure";
 
 export default defineConfig({
   name: "spxnso",
@@ -24,7 +25,9 @@ export default defineConfig({
     types: schemaTypes,
   },
   plugins: [
-    structureTool(),
+    structureTool({
+      structure: sanityStructure,
+    }),
     visionTool({ defaultApiVersion: apiVersion }),
     media(),
     codeInput(),

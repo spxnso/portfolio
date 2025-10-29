@@ -1,5 +1,25 @@
 import { PortableTextBlock } from "next-sanity";
 
+export type AboutTechItemType = {
+  title: string;
+  description: string;
+};
+export type AboutType = {
+  _id: string;
+  profileImage: {
+    image: string;
+    alt: string | null;
+    lqip: string;
+  };
+  resume?: {
+    url: string;
+  };
+  languages: AboutTechItemType[];
+  frameworks: AboutTechItemType[];
+  tools: AboutTechItemType[];
+  pageContent: PortableTextBlock[];
+};
+
 export type ImageType = {
   image: string;
   alt: string | null;
@@ -20,6 +40,7 @@ export type AuthorType = {
   avatar: ImageType;
   tagline: string;
   bio: PortableTextBlock[];
+  traits: string[];
   job: string;
   location: string;
   email?: string;
@@ -53,16 +74,8 @@ export type ProjectType = {
   description: string;
   slug: string;
   featured: boolean;
-  coverImage: {
-    image: string;
-    alt: string | null;
-    lqip: string;
-  };
-  icon: {
-    image: string;
-    alt: string | null;
-    lqip: string;
-  };
+  coverImage: ImageType;
+  icon: ImageType;
   author: AuthorType;
   tags: string[];
   github?: string;
