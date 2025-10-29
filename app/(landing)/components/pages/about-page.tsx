@@ -5,7 +5,7 @@ import H1 from "@/components/elements/h1";
 import Section from "@/components/elements/section";
 import Image from "@/components/utils/image";
 import { AboutTechItemType, AboutType, AuthorType } from "@/types";
-import { PortableText, toPlainText } from "next-sanity";
+import { PortableText } from "next-sanity";
 import CustomPortableText from "../sanity/custom-portable-text";
 import SectionHeading from "../elements/section-heading";
 import Main from "@/components/elements/main";
@@ -106,10 +106,6 @@ export default function AboutPage({
             loop
           />
         </H1>
-
-        <p className="text-justify leading-relaxed text-base sm:text-lg text-muted-foreground">
-          {toPlainText(author.bio)}
-        </p>
 
         <PortableText
           components={CustomPortableText}

@@ -3,14 +3,13 @@
 import { useMemo, useState } from "react";
 import Icons from "@/components/utils/icons";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import CardAnimator from "@/components/animations/card";
 
 import { ProjectType } from "@/types";
 import PageHeading from "../../components/elements/page-heading";
 import ProjectCard from "./project-card";
 import Section from "@/components/elements/section";
-
+import Pagination from "../../components/elements/pagination";
 export default function ProjectsPage({
   projects,
 }: {
@@ -73,31 +72,11 @@ export default function ProjectsPage({
         <p className="text-muted-foreground">No projects found.</p>
       )}
 
-      {totalPages > 1 && (
-        <div className="flex justify-center items-center gap-4 mt-4">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-            disabled={currentPage === 1}
-          >
-            Previous
-          </Button>
-
-          <span className="text-sm text-muted-foreground">
-            Page {currentPage} of {totalPages}
-          </span>
-
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
-            disabled={currentPage === totalPages}
-          >
-            Next
-          </Button>
-        </div>
-      )}
+      <Pagination
+        totalPages={totalPages}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
     </Section>
   );
 }

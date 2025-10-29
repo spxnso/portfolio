@@ -11,7 +11,7 @@ export interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link href={`/projects/${project.slug}`}>
-      <article className="group flex flex-col h-full overflow-hidden rounded-md border border-border hover:shadow-lg transition-all duration-200">
+      <article className="group flex flex-col overflow-hidden rounded-md border border-border hover:shadow-lg transition-all duration-200 h-[360px]">
         <div className="w-full h-48 overflow-hidden border-b border-border relative">
           <Image
             src={project.coverImage?.image}

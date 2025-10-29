@@ -17,7 +17,7 @@ export default function NotFound() {
         <div className="space-y-4 flex flex-col">
           <Link href="/about">
             <div className=" flex items-center space-x-4 rounded-md border p-4 max-w-sm w-full hover:scale-105 transition-all duration-200 ease-in-out group">
-              <Icons.User className="w-5 h-5 group-hover:text-primary transition-all" />
+              <Icons.User className="w-5 h-5 text-primary transition-all" />
               <div className="flex-1 space-y-1">
                 <P className="font-medium text-foreground">About</P>
                 <P>
@@ -30,7 +30,7 @@ export default function NotFound() {
           </Link>
           <Link href="/projects">
             <div className=" flex items-center space-x-4 rounded-md border p-4 max-w-sm w-full hover:scale-105 transition-all duration-200 ease-in-out group">
-              <Icons.FolderOpen className="w-5 h-5 group-hover:text-primary transition-all" />
+              <Icons.FolderOpen className="w-5 h-5 text-primary transition-all" />
               <div className="flex-1 space-y-1">
                 <P className="font-medium text-foreground">Projects</P>
                 <P>
@@ -43,7 +43,7 @@ export default function NotFound() {
           </Link>
           <Link href="/blog">
             <div className=" flex items-center space-x-4 rounded-md border p-4 max-w-sm w-full hover:scale-105 transition-all duration-200 ease-in-out group">
-              <Icons.Note className="w-5 h-5 group-hover:text-primary transition-all" />
+              <Icons.Note className="w-5 h-5 text-primary transition-all" />
               <div className="flex-1 space-y-1">
                 <P className="font-medium text-foreground">Blog</P>
                 <P>

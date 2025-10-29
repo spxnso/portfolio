@@ -168,15 +168,13 @@ export default async function Post({ params }: PostProps) {
             {data.tags && data.tags.length > 0 && (
               <div className="flex flex-wrap gap-2">
                 {data.tags.map((tag: string) => (
-                  <Link href={`/blog/${tag.toLocaleLowerCase()}`} key={tag}>
-                    <Badge
-                      key={tag}
-                      variant="secondary"
-                      className="text-xs px-2 py-1 font-medium"
-                    >
-                      #{tag}
-                    </Badge>
-                  </Link>
+                  <Badge
+                    key={tag}
+                    variant="secondary"
+                    className="text-xs px-2 py-1 font-medium"
+                  >
+                    #{tag}
+                  </Badge>
                 ))}
               </div>
             )}
