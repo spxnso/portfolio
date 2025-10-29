@@ -14,7 +14,7 @@ export default function CustomPortableYoutube({
   return (
     <div className="w-full">
       <HeroVideoDialog
-        className="block w-full"
+        className="block"
         animationStyle="from-center"
         videoSrc={`https://youtube.com/embed/${id}`}
         thumbnailSrc={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}

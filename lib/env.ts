@@ -11,6 +11,11 @@ export const projectId = assertValue(
   "Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID",
 );
 
+export const hookSecret = assertValue(
+  process.env.NEXT_PUBLIC_SANITY_HOOK_SECRET,
+  "Missing environment variable: NEXT_PUBLIC_SANITY_HOOK_SECRET",
+);
+
 export const giscusRepo = assertValue(
   process.env.NEXT_PUBLIC_GISCUS_REPO,
   "Missing environment variable: NEXT_PUBLIC_GISCUS_REPO",
