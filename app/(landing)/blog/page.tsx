@@ -1,8 +1,7 @@
+import { sanityFetch } from "@/lib/sanity.live";
 import PostsPage from "./components/posts-page";
 
-import { getPosts } from "@/lib/sanity.query";
-
-import { PostType } from "@/types";
+import { postQuery } from "@/lib/sanity.query";
 
 export type Blog = {
   title: string;
@@ -13,6 +12,10 @@ export type Blog = {
 };
 
 export default async function Blog() {
-  const posts: PostType[] = await getPosts();
-  return <PostsPage posts={posts} />;
+  const posts = await sanityFetch({
+    query: postQuery,
+    tags: ["post", "author", "category"],
+  });
+
+  return <PostsPage posts={posts.data} />;
 }
