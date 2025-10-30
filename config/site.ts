@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "spxnso - Aspiring cybersecurity engineer",
+  name: "spxnso",
   icon: "https://github.com/spxnso.png",
   description: "Student and aspiring cybersecurity engineer",
   keywords: [
