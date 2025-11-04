@@ -19,7 +19,7 @@ export default function PostCard({ post }: PostCardProps) {
         <div className="w-full h-48 overflow-hidden border-b border-border relative">
           <Image
             src={post.coverImage.image}
-            alt={post.coverImage.alt as string}
+            alt={(post.coverImage.alt as string) || ""}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
         </div>

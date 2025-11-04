@@ -39,23 +39,24 @@ const postData = `{
     "slug": slug.current,
     description
   },
+  isPublished,
   publishedAt,
   updatedAt,
   readTime,
   body,
 }`;
 
-export const postQuery = groq`*[_type == "post"] | order(publishedAt desc) ${postData}`;
-export const featuredPostsQuery = groq`*[_type == "post" && featured == true] | order(publishedAt desc) ${postData}`;
-export const recentPostsQuery = groq`*[_type == "post"] | order(publishedAt desc) [0...5] ${postData}`;
+export const postQuery = groq`*[_type == "post" && isPublished == true] | order(publishedAt desc) ${postData}`;
+export const featuredPostsQuery = groq`*[_type == "post" && featured == true && isPublished == true] | order(publishedAt desc) ${postData}`;
+export const recentPostsQuery = groq`*[_type == "post" && isPublished == true] | order(publishedAt desc) [0...5] ${postData}`;
 
-export const postQueryBySlug = groq`*[_type == "post" && slug.current == $slug][0] ${postData}`;
+export const postQueryBySlug = groq`*[_type == "post" && slug.current == $slug && isPublished == true][0] ${postData}`;
 
-export const postQueryByCategory = groq`*[_type == "post" && category->slug.current == $slug] ${postData}`;
+export const postQueryByCategory = groq`*[_type == "post" && category->slug.current == $slug && isPublished == true] ${postData}`;
 
-export const postQueryByAuthor = groq`*[_type == "post" && author->slug.current == $slug] ${postData}`;
+export const postQueryByAuthor = groq`*[_type == "post" && author->slug.current == $slug && isPublished == true] ${postData}`;
 
-export const postQueryByTag = groq`*[_type == "post" && $postTag in tags] | order(publishedAt desc) ${postData}`;
+export const postQueryByTag = groq`*[_type == "post" && $postTag in tags && isPublished == true] | order(publishedAt desc) ${postData}`;
 
 export const getPosts = async () => {
   const result = await sanityFetch({
