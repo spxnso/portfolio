@@ -2,7 +2,7 @@ import Icons from "@/components/utils/icons";
 import { PostType } from "@/types";
 import Link from "next/link";
 import Image from "@/components/utils/image";
-import { formatDate } from "@/lib/utils";
+import { calculateReadTime, formatDate } from "@/lib/utils";
 import P from "@/components/elements/p";
 
 export interface PostCardProps {
@@ -38,7 +38,7 @@ export default function PostCard({ post }: PostCardProps) {
             <span>&middot;</span>
             <span className="flex items-center gap-1">
               <Icons.Clock className="w-3 h-3" />
-              {post.readTime}
+              {calculateReadTime(post.body)}
             </span>
           </div>
         </div>

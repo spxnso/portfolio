@@ -42,7 +42,6 @@ const postData = `{
   isPublished,
   publishedAt,
   updatedAt,
-  readTime,
   body,
 }`;
 

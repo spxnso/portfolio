@@ -95,11 +95,6 @@ export const postType = defineType({
       hidden: ({ document }) => !document?.publishedAt,
     }),
     defineField({
-      name: "readTime",
-      type: "string",
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
       name: "body",
       type: "blockContent",
       validation: (Rule) => Rule.required(),

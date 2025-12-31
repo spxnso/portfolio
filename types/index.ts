@@ -64,7 +64,7 @@ export type PostType = {
   category: CategoryType;
   publishedAt: string;
   updatedAt: string;
-  readTime: string;
+
   body: PortableTextBlock[];
 };
 

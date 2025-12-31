@@ -18,7 +18,7 @@ import Icons from "@/components/utils/icons";
 import { PortableText } from "@portabletext/react";
 import CustomPortableText from "../../components/sanity/custom-portable-text";
 import { getPostBySlug, postQueryBySlug } from "@/lib/sanity.query";
-import { formatDate } from "@/lib/utils";
+import { calculateReadTime, formatDate } from "@/lib/utils";
 import { PostType } from "@/types";
 import { notFound } from "next/navigation";
 import { urlFor } from "@/lib/sanity.image";
@@ -129,7 +129,7 @@ export default async function Post({ params }: PostProps) {
           </span>
           <span className="flex gap-2 items-center">
             <Icons.Clock className="w-4 h-4" />
-            {data.readTime}
+            {calculateReadTime(data.body)}
           </span>
           <Link
             href="#comments"
