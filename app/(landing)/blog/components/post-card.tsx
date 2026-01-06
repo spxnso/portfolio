@@ -14,7 +14,7 @@ export default function PostCard({ post }: PostCardProps) {
     <Link href={`/blog/${post.slug}`}>
       <article
         key={post.title}
-        className="group flex flex-col overflow-hidden rounded-md border border-border hover:shadow-lg transition-all duration-200 h-[360px]"
+        className="group flex flex-col overflow-hidden rounded-md border border-border hover:shadow-lg transition-all duration-200 h-90"
       >
         <div className="w-full h-48 overflow-hidden border-b border-border relative">
           <Image
