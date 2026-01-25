@@ -1,12 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { landingConfig } from "@/config/landing";
 import { Button } from "@/components/ui/button";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import Icons from "./icons";
-import { AnimatedThemeToggler } from "./theme-toggler";
 import {
   Sheet,
   SheetClose,
@@ -17,6 +16,13 @@ import {
 } from "@/components/ui/sheet";
 import Image from "./image";
 import { usePathname } from "next/navigation";
+
+// Hydration mismatch fix (not sure about this one?)
+const AnimatedThemeToggler = dynamic(
+  () => import("./theme-toggler").then((m) => m.AnimatedThemeToggler),
+  { ssr: false },
+);
+
 export interface NavbarItemProps {
   title: string;
   href: string;
@@ -36,10 +42,6 @@ export function NavbarUserDisplay() {
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
 
   return (
     <nav className="w-full border-b bg-background/80 backdrop-blur-md z-40">
@@ -70,6 +72,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           <AnimatedThemeToggler />
+
           <div className="lg:hidden">
             <Sheet>
               <SheetTrigger asChild>

@@ -22,40 +22,54 @@ import Pagination from "../../components/elements/pagination";
 
 export default function PostsPage({ posts }: { posts: PostType[] }) {
   const [search, setSearch] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+
+  const [pageInput, setPageInput] = useState(1);
+
   const itemsPerPage = 6;
 
   const filteredPosts = useMemo(() => {
-    const query = search.toLowerCase();
+    const query = search.toLowerCase().trim();
+
     return posts.filter((post) => {
       const titleMatch = post.title.toLowerCase().includes(query);
-      const excerptMatch = post.excerpt?.toLowerCase().includes(query);
-      const tagsMatch = post.tags?.some((tag) =>
-        tag.toLowerCase().includes(query),
-      );
+      const excerptMatch = post.excerpt?.toLowerCase().includes(query) ?? false;
+      const tagsMatch =
+        post.tags?.some((tag) => tag.toLowerCase().includes(query)) ?? false;
       const categoryMatch = post.category.title.toLowerCase().includes(query);
 
-      return titleMatch || excerptMatch || tagsMatch || categoryMatch;
-    });
-  }, [posts, search]);
+      const matchesSearch =
+        query.length === 0
+          ? true
+          : titleMatch || excerptMatch || tagsMatch || categoryMatch;
 
-  const totalPages = Math.ceil(filteredPosts.length / itemsPerPage);
+      const matchesCategory =
+        selectedCategory === "all"
+          ? true
+          : post.category.title === selectedCategory;
+
+      return matchesSearch && matchesCategory;
+    });
+  }, [posts, search, selectedCategory]);
+
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredPosts.length / itemsPerPage),
+  );
+
+  const currentPage = Math.min(pageInput, totalPages);
+
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentPosts = filteredPosts.slice(
     startIndex,
     startIndex + itemsPerPage,
   );
 
-  useMemo(() => {
-    setCurrentPage(1);
-  }, []);
-
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-
   const categories = useMemo(() => {
     const allCategories = posts.map((post) => post.category.title);
     return Array.from(new Set(allCategories));
   }, [posts]);
+
   return (
     <Section>
       <PageHeading
@@ -67,20 +81,25 @@ export default function PostsPage({ posts }: { posts: PostType[] }) {
         <Icons.Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground w-3 h-3" />
         <Input
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => {
+            setSearch(e.target.value);
+            setPageInput(1); // reset on user interaction (not in an effect)
+          }}
           className="pl-10 bg-background rounded-md border border-border"
           placeholder="Search blog posts..."
         />
+
         <Select
-          value={selectedCategory || "all"}
+          value={selectedCategory}
           onValueChange={(value) => {
             setSelectedCategory(value);
+            setPageInput(1); // reset on user interaction (not in an effect)
           }}
         >
-          <SelectTrigger className="">
+          <SelectTrigger>
             <SelectValue placeholder="Select a category" />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="bg-background rounded-md">
             <SelectGroup>
               <SelectLabel>Categories</SelectLabel>
               <SelectItem value="all">All ({posts.length})</SelectItem>
@@ -98,6 +117,7 @@ export default function PostsPage({ posts }: { posts: PostType[] }) {
           </SelectContent>
         </Select>
       </div>
+
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {currentPosts.map((post, index) => (
           <CardAnimator key={post._id} index={index}>
@@ -113,7 +133,7 @@ export default function PostsPage({ posts }: { posts: PostType[] }) {
       <Pagination
         totalPages={totalPages}
         currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
+        setCurrentPage={setPageInput}
       />
     </Section>
   );

@@ -28,16 +28,15 @@ export default function CategorisedPostsPage({ posts }: { posts: PostType[] }) {
     });
   }, [posts, search]);
 
-  const totalPages = Math.ceil(filteredPosts.length / itemsPerPage);
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredPosts.length / itemsPerPage),
+  );
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentPosts = filteredPosts.slice(
     startIndex,
     startIndex + itemsPerPage,
   );
-
-  useMemo(() => {
-    setCurrentPage(1);
-  }, []);
 
   return (
     <Section>
@@ -49,7 +48,10 @@ export default function CategorisedPostsPage({ posts }: { posts: PostType[] }) {
         <Icons.Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground w-3 h-3" />
         <Input
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => {
+            setSearch(e.target.value);
+            setCurrentPage(1);
+          }}
           className="pl-10 bg-background rounded-md border border-border"
           placeholder="Search blog posts..."
         />

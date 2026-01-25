@@ -86,7 +86,7 @@ export const TweetNotFound = ({
 }) => (
   <div
     className={cn(
-      "flex size-full flex-col items-center justify-center gap-2 rounded-lg border p-4",
+      "flex size-full flex-col items-center justify-center gap-2 rounded-md border p-4",
       className,
     )}
     {...props}
