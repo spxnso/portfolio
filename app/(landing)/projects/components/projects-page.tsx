@@ -40,10 +40,6 @@ export default function ProjectsPage({
     startIndex + itemsPerPage,
   );
 
-  useMemo(() => {
-    setCurrentPage(1);
-  }, []);
-
   return (
     <Section>
       <PageHeading
@@ -56,7 +52,7 @@ export default function ProjectsPage({
         <Input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full pl-10 bg-background rounded-md border border-border"
+          className="w-full pl-10 bg-background rounded-none border border-border"
           placeholder="Search projects..."
         />
       </div>

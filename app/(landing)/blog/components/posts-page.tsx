@@ -85,7 +85,7 @@ export default function PostsPage({ posts }: { posts: PostType[] }) {
             setSearch(e.target.value);
             setPageInput(1); // reset on user interaction (not in an effect)
           }}
-          className="pl-10 bg-background rounded-md border border-border"
+          className="pl-10 bg-background rounded-none border border-border"
           placeholder="Search blog posts..."
         />
 
@@ -99,7 +99,7 @@ export default function PostsPage({ posts }: { posts: PostType[] }) {
           <SelectTrigger>
             <SelectValue placeholder="Select a category" />
           </SelectTrigger>
-          <SelectContent className="bg-background rounded-md">
+          <SelectContent className="bg-background rounded-none">
             <SelectGroup>
               <SelectLabel>Categories</SelectLabel>
               <SelectItem value="all">All ({posts.length})</SelectItem>

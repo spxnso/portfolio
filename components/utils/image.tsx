@@ -12,7 +12,7 @@ export default function Image({ lqip, ...props }: CustomImageProps) {
       quality={props.quality ?? 100}
       placeholder={props.placeholder ?? (lqip ? "blur" : "empty")}
       blurDataURL={props.blurDataURL ?? lqip ?? ""}
-      className={props.className ?? "rounded-md border object-cover"}
+      className={props.className ?? "rounded-none border object-cover"}
     />
   );
 }

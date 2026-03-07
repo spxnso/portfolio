@@ -13,7 +13,7 @@ export default function CustomPortableImage({
   return (
     <figure>
       <Image
-        className="rounded-md object-cover w-full max-h-120 border duration-300"
+        className="rounded-none object-cover w-full max-h-120 border duration-300"
         src={urlFor(value).url()}
         alt={value.alt}
         loading="lazy"

@@ -1,4 +1,4 @@
-import Icons from "@/components/utils/icons";
+import { FolderOpen } from "@/components/utils/icons";
 import { defineType, defineField } from "sanity";
 
 export const projectType = defineType({
@@ -6,7 +6,7 @@ export const projectType = defineType({
   title: "Projects",
   description: "Schema defining a portfolio project entry.",
   type: "document",
-  icon: Icons.FolderOpen,
+  icon: FolderOpen,
   fields: [
     defineField({
       name: "name",

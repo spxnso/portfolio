@@ -63,13 +63,13 @@ export default function CodeBlock({
 
   if (!mounted) {
     return (
-      <div className="w-full h-32 bg-background rounded-md border animate-pulse" />
+      <div className="w-full h-32 bg-background rounded-none border animate-pulse" />
     );
   }
 
   return (
     <div
-      className="group relative w-full overflow-hidden rounded-md border bg-background backdrop-blur-sm"
+      className="group relative w-full overflow-hidden rounded-none border bg-background backdrop-blur-sm"
       key={code}
     >
       <div className="flex items-center justify-between border-b bg-background px-4 py-2 text-sm text-muted-foreground">

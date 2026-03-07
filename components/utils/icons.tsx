@@ -1,81 +1,116 @@
-import { Menu } from "lucide-react";
+"use client";
+
 import {
-  FaCalendar,
-  FaCheck,
-  FaChevronDown,
-  FaChevronUp,
-  FaClock,
-  FaComment,
-  FaCopy,
-  FaDiscord,
-  FaEnvelope,
-  FaExternalLinkAlt,
-  FaFacebook,
-  FaFileCode,
-  FaFolderOpen,
-  FaGithub,
-  FaHome,
-  FaLink,
-  FaLinkedin,
-  FaNpm,
-  FaQuestion,
-  FaReddit,
-  FaSearch,
-  FaSteam,
-  FaUser,
-  FaUserSecret,
-  FaWhatsapp,
-  FaYoutube,
-} from "react-icons/fa";
-import {
-  FaNoteSticky,
-  FaSignalMessenger,
-  FaXmark,
-  FaXTwitter,
-} from "react-icons/fa6";
-import {
-  IoIosAlert,
-  IoIosWarning,
-  IoIosCheckmarkCircle,
-  IoIosInformationCircle,
-} from "react-icons/io";
+  GithubLogoIcon,
+  DiscordLogoIcon,
+  LinkedinLogoIcon,
+  SteamLogoIcon,
+  TwitterLogoIcon,
+  FacebookLogoIcon,
+  WhatsappLogoIcon,
+  RedditLogoIcon,
+  EnvelopeIcon,
+  LinkIcon,
+  LinkSimpleIcon,
+  YoutubeLogoIcon,
+  CalendarDotIcon,
+  ClockIcon,
+  MagnifyingGlassIcon,
+  CheckIcon,
+  CaretDownIcon,
+  CaretUpIcon,
+  DotsThreeIcon,
+  XIcon,
+  NoteIcon,
+  UserIcon,
+  FolderOpenIcon,
+  DetectiveIcon,
+  FileCodeIcon,
+  CopyIcon,
+  ChatCircleIcon,
+  QuestionIcon,
+  WarningIcon,
+  WarningCircleIcon,
+  InfoIcon,
+  CheckCircleIcon,
+  HouseIcon,
+  ArrowSquareOutIcon,
+} from "@phosphor-icons/react";
+import { FaNpm } from "react-icons/fa";
+import { FaSignalMessenger } from "react-icons/fa6";
+
+export const Github = GithubLogoIcon;
+export const Discord = DiscordLogoIcon;
+export const Linkedin = LinkedinLogoIcon;
+export const Npm = FaNpm;
+export const Steam = SteamLogoIcon;
+export const Signal = FaSignalMessenger;
+export const X = TwitterLogoIcon;
+export const Facebook = FacebookLogoIcon;
+export const Whatsapp = WhatsappLogoIcon;
+export const Reddit = RedditLogoIcon;
+export const Envelope = EnvelopeIcon;
+export const Link = LinkIcon;
+export const ExternalLink = ArrowSquareOutIcon;
+export const Youtube = YoutubeLogoIcon;
+export const Calendar = CalendarDotIcon;
+export const Clock = ClockIcon;
+export const Search = MagnifyingGlassIcon;
+export const Check = CheckIcon;
+export const ChevronDown = CaretDownIcon;
+export const ChevronUp = CaretUpIcon;
+export const Menu = DotsThreeIcon;
+export const XMark = XIcon;
+export const Note = NoteIcon;
+export const User = UserIcon;
+export const FolderOpen = FolderOpenIcon;
+export const UserSecret = DetectiveIcon;
+export const FileCode = FileCodeIcon;
+export const Copy = CopyIcon;
+export const Comment = ChatCircleIcon;
+export const Question = QuestionIcon;
+export const Warning = WarningIcon;
+export const Alert = WarningCircleIcon;
+export const Info = InfoIcon;
+export const CheckCircle = CheckCircleIcon;
+export const Home = HouseIcon;
 
 const Icons = {
-  Github: FaGithub,
-  Discord: FaDiscord,
-  Linkedin: FaLinkedin,
-  Npm: FaNpm,
-  Steam: FaSteam,
-  Signal: FaSignalMessenger,
-  X: FaXTwitter,
-  Facebook: FaFacebook,
-  Whatsapp: FaWhatsapp,
-  Reddit: FaReddit,
-  Envelope: FaEnvelope,
-  Link: FaLink,
-  ExternalLink: FaExternalLinkAlt,
-  Youtube: FaYoutube,
-  Calendar: FaCalendar,
-  Clock: FaClock,
-  Search: FaSearch,
-  Check: FaCheck,
-  ChevronDown: FaChevronDown,
-  ChevronUp: FaChevronUp,
+  Github,
+  Discord,
+  Linkedin,
+  Npm,
+  Steam,
+  Signal,
+  X,
+  Facebook,
+  Whatsapp,
+  Reddit,
+  Envelope,
+  Link,
+  ExternalLink,
+  Youtube,
+  Calendar,
+  Clock,
+  Search,
+  Check,
+  ChevronDown,
+  ChevronUp,
   Menu,
-  XMark: FaXmark,
-  Note: FaNoteSticky,
-  User: FaUser,
-  FolderOpen: FaFolderOpen,
-  UserSecret: FaUserSecret,
-  FileCode: FaFileCode,
-  Copy: FaCopy,
-  Comment: FaComment,
-  Question: FaQuestion,
-  Warning: IoIosWarning,
-  Alert: IoIosAlert,
-  Info: IoIosInformationCircle,
-  CheckCircle: IoIosCheckmarkCircle,
-  Home: FaHome,
+  XMark,
+  Note,
+  User,
+  FolderOpen,
+  UserSecret,
+  FileCode,
+  Copy,
+  Comment,
+  Question,
+  Warning,
+  Alert,
+  Info,
+  CheckCircle,
+  Home,
 };
 
 export function ResolveIconByName(name: string) {

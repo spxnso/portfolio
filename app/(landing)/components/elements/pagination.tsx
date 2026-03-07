@@ -50,7 +50,7 @@ export default function Pagination({
                 }}
                 aria-current={isActive ? "page" : undefined}
                 className={
-                  "px-3 py-1 rounded-md transition " +
+                  "px-3 py-1 rounded-none transition " +
                   (isActive
                     ? "bg-transparent border border-border hover:bg-muted"
                     : "")

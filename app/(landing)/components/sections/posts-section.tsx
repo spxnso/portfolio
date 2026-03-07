@@ -3,10 +3,11 @@
 import Link from "next/link";
 import CardAnimator from "@/components/animations/card";
 import { PostType } from "@/types";
-import { FaArrowRight } from "react-icons/fa";
+
 import PostCard from "../../blog/components/post-card";
 import SectionHeading from "../elements/section-heading";
 import Section from "@/components/elements/section";
+import { ArrowRightIcon } from "@phosphor-icons/react";
 
 export default function PostsSection({ posts }: { posts: PostType[] }) {
   const visibleCount = 3;
@@ -18,7 +19,7 @@ export default function PostsSection({ posts }: { posts: PostType[] }) {
         <SectionHeading title="Latest posts" eyebrow="Writing" />
         <Link href="/blog" className="hover:text-primary flex items-center">
           View All
-          <FaArrowRight className="ml-2 w-4 h-4" />
+          <ArrowRightIcon className="ml-2 w-4 h-4" />
         </Link>
       </div>
 

@@ -63,6 +63,7 @@ If you like this project and think it has helped in any way, consider becoming a
 ## You may also like...
 
 - [Logisec](https://logisec.net) - An upcoming cybersecurity company
+- [OneObfuscator](https://obfuscator.fr) - Luau code obfuscator
 
 ## License
 

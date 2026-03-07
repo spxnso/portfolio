@@ -1,4 +1,4 @@
-import Icons from "@/components/utils/icons";
+import { Calendar, Clock } from "@/components/utils/icons";
 import { PostType } from "@/types";
 import Link from "next/link";
 import Image from "@/components/utils/image";
@@ -14,7 +14,7 @@ export default function PostCard({ post }: PostCardProps) {
     <Link href={`/blog/${post.slug}`}>
       <article
         key={post.title}
-        className="group flex flex-col overflow-hidden rounded-md border border-border hover:shadow-lg transition-all duration-200 h-90"
+        className="group flex flex-col overflow-hidden rounded-none border border-border hover:shadow-lg transition-all duration-200 h-90"
       >
         <div className="w-full h-48 overflow-hidden border-b border-border relative">
           <Image
@@ -32,12 +32,12 @@ export default function PostCard({ post }: PostCardProps) {
 
           <div className="flex items-center gap-2 text-xs text-muted-foreground mt-auto pt-3 border-t border-border/50">
             <span className="flex items-center gap-1">
-              <Icons.Calendar className="w-3 h-3" />
+              <Calendar className="w-3 h-3" />
               {formatDate(post.publishedAt)}
             </span>
             <span>&middot;</span>
             <span className="flex items-center gap-1">
-              <Icons.Clock className="w-3 h-3" />
+              <Clock className="w-3 h-3" />
               {calculateReadTime(post.body)}
             </span>
           </div>

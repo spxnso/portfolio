@@ -9,7 +9,7 @@ import CustomPortableCallout from "./custom-portable-callout";
 import CustomPortableImage from "./custom-portable-image";
 import CustomPortableYoutube from "./custom-portable-youtube";
 import CustomPortableTable from "./custom-portable-table";
-import Icons from "@/components/utils/icons";
+import { ExternalLink } from "@/components/utils/icons";
 
 const CustomPortableText: PortableTextComponents = {
   types: {
@@ -74,7 +74,7 @@ const CustomPortableText: PortableTextComponents = {
         className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary/80 transition-colors duration-200 hover:underline"
       >
         {children}
-        <Icons.ExternalLink className="w-3 h-3" />
+        <ExternalLink className="w-3 h-3" />
       </a>
     ),
     strong: ({ children }) => (

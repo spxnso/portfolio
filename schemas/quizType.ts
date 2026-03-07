@@ -1,11 +1,11 @@
 import { defineField } from "sanity";
-import Icons from "@/components/utils/icons";
+import { Question } from "@/components/utils/icons";
 
 export const quizType = defineField({
   name: "quiz",
   title: "Quiz",
   type: "object",
-  icon: Icons.Question,
+  icon: Question,
   fields: [
     defineField({
       name: "question",

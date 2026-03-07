@@ -11,7 +11,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import Icons from "@/components/utils/icons";
+import { Github, ExternalLink, Comment } from "@/components/utils/icons";
 
 import { PortableText } from "@portabletext/react";
 import CustomPortableText from "../../components/sanity/custom-portable-text";
@@ -122,7 +122,7 @@ export default async function Project({ params }: ProjectProps) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Icons.Github />
+                <Github />
                 Github
               </Link>
               <span>&middot;</span>
@@ -136,7 +136,7 @@ export default async function Project({ params }: ProjectProps) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Icons.ExternalLink />
+                <ExternalLink />
                 Live Demo
               </Link>
               <span>&middot;</span>
@@ -146,7 +146,7 @@ export default async function Project({ params }: ProjectProps) {
             href="#comments"
             className="flex gap-2 items-center text-primary cursor-pointer hover:underline"
           >
-            <Icons.Comment className="w-4 h-4" />
+            <Comment className="w-4 h-4" />
             Comments
           </Link>
         </div>

@@ -51,7 +51,7 @@ const Skeleton = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => {
   return (
-    <div className={cn("bg-primary/10 rounded-md", className)} {...props} />
+    <div className={cn("bg-primary/10 rounded-none", className)} {...props} />
   );
 };
 
@@ -64,7 +64,7 @@ export const TweetSkeleton = ({
 }) => (
   <div
     className={cn(
-      "flex size-full max-h-max min-w-72 flex-col gap-2 rounded-md border p-4",
+      "flex size-full max-h-max min-w-72 flex-col gap-2 rounded-none border p-4",
       className,
     )}
     {...props}
@@ -86,7 +86,7 @@ export const TweetNotFound = ({
 }) => (
   <div
     className={cn(
-      "flex size-full flex-col items-center justify-center gap-2 rounded-md border p-4",
+      "flex size-full flex-col items-center justify-center gap-2 rounded-none border p-4",
       className,
     )}
     {...props}
@@ -183,7 +183,7 @@ export const TweetMedia = ({ tweet }: { tweet: EnrichedTweet }) => {
           loop
           muted
           playsInline
-          className="rounded-md border shadow-sm"
+          className="rounded-none border shadow-sm"
         >
           <source src={tweet.video.variants[0].src} type="video/mp4" />
         </video>
@@ -199,7 +199,7 @@ export const TweetMedia = ({ tweet }: { tweet: EnrichedTweet }) => {
               height={photo.height}
               title={"Photo by " + tweet.user.name}
               alt={tweet.text}
-              className="h-96 w-auto rounded-md border object-cover shadow-sm"
+              className="h-96 w-auto rounded-none border object-cover shadow-sm"
             />
           );
         })}
@@ -219,7 +219,7 @@ export const MagicTweet = ({
   return (
     <div
       className={cn(
-        "relative flex h-fit w-full max-w-lg flex-col gap-2 overflow-hidden rounded-md border p-4 backdrop-blur-md",
+        "relative flex h-fit w-full max-w-lg flex-col gap-2 overflow-hidden rounded-none border p-4 backdrop-blur-md",
         className,
       )}
       {...props}

@@ -39,14 +39,14 @@ export default function ProjectsSection({
             >
               <Link
                 href={`/projects/${project.slug}`}
-                className="group relative flex flex-col sm:flex-row items-start gap-3 p-4 rounded-md border border-border
+                className="group relative flex flex-col sm:flex-row items-start gap-3 p-4 rounded-none border border-border
             hover:bg-primary/10 hover:border-primary transform hover:scale-105 transition-all duration-300 w-full max-w-md sm:max-w-none mx-auto"
               >
                 <span className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-primary font-bold">
                   <Icons.ExternalLink />
                 </span>
 
-                <div className="rounded-md overflow-hidden">
+                <div className="rounded-none overflow-hidden">
                   {project.icon ? (
                     <div className="w-12 h-12 block relative">
                       <Image
@@ -55,7 +55,7 @@ export default function ProjectsSection({
                       />
                     </div>
                   ) : (
-                    <div className="w-12 h-12 flex items-center justify-center bg-muted rounded-md border">
+                    <div className="w-12 h-12 flex items-center justify-center bg-muted rounded-none border">
                       <Icons.Github className="text-foreground w-6 h-6" />
                     </div>
                   )}

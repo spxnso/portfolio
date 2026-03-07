@@ -52,7 +52,7 @@ export default function CategorisedPostsPage({ posts }: { posts: PostType[] }) {
             setSearch(e.target.value);
             setCurrentPage(1);
           }}
-          className="pl-10 bg-background rounded-md border border-border"
+          className="pl-10 bg-background rounded-none border border-border"
           placeholder="Search blog posts..."
         />
       </div>

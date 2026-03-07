@@ -13,7 +13,18 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Badge } from "@/components/ui/badge";
 
-import Icons from "@/components/utils/icons";
+import {
+  Calendar,
+  Clock,
+  Comment,
+  FolderOpen,
+  X,
+  Linkedin,
+  Facebook,
+  Whatsapp,
+  Reddit,
+  Envelope,
+} from "@/components/utils/icons";
 
 import { PortableText } from "@portabletext/react";
 import CustomPortableText from "../../components/sanity/custom-portable-text";
@@ -124,18 +135,18 @@ export default async function Post({ params }: PostProps) {
             </Link>
           )}
           <span className="flex gap-2 items-center">
-            <Icons.Calendar className="w-4 h-4" />
+            <Calendar className="w-4 h-4" />
             {formatDate(data.publishedAt)}
           </span>
           <span className="flex gap-2 items-center">
-            <Icons.Clock className="w-4 h-4" />
+            <Clock className="w-4 h-4" />
             {calculateReadTime(data.body)}
           </span>
           <Link
             href="#comments"
             className="flex gap-2 items-center text-primary cursor-pointer hover:underline"
           >
-            <Icons.Comment className="w-4 h-4" />
+            <Comment className="w-4 h-4" />
             Comments
           </Link>
         </div>
@@ -160,7 +171,7 @@ export default async function Post({ params }: PostProps) {
                 href={`/blog/category/${data.category.slug}`}
                 className="text-primary font-medium hover:underline flex items-center gap-2"
               >
-                <Icons.FolderOpen className="w-4 h-4" />
+                <FolderOpen className="w-4 h-4" />
                 {data.category.title}
               </Link>
             )}
@@ -190,7 +201,7 @@ export default async function Post({ params }: PostProps) {
               rel="noopener noreferrer"
               className="flex items-center gap-2 group"
             >
-              <Icons.X className="w-5 h-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
+              <X className="w-5 h-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
             </Link>
             <Link
               href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
@@ -200,7 +211,7 @@ export default async function Post({ params }: PostProps) {
               rel="noopener noreferrer"
               className="flex items-center gap-2 group"
             >
-              <Icons.Linkedin className="w-5 h-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
+              <Linkedin className="w-5 h-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
             </Link>
             <Link
               href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
@@ -210,7 +221,7 @@ export default async function Post({ params }: PostProps) {
               rel="noopener noreferrer"
               className="flex items-center gap-2 group"
             >
-              <Icons.Facebook className="w-5 h-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
+              <Facebook className="w-5 h-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
             </Link>
             <Link
               href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
@@ -220,7 +231,7 @@ export default async function Post({ params }: PostProps) {
               rel="noopener noreferrer"
               className="flex items-center gap-2 group"
             >
-              <Icons.Whatsapp className="w-5 h-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
+              <Whatsapp className="w-5 h-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
             </Link>
             <Link
               href={`https://www.reddit.com/submit?url=${encodeURIComponent(
@@ -230,7 +241,7 @@ export default async function Post({ params }: PostProps) {
               rel="noopener noreferrer"
               className="flex items-center gap-2 group"
             >
-              <Icons.Reddit className="w-5 h-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
+              <Reddit className="w-5 h-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
             </Link>
             <Link
               href={`mailto:?subject=${encodeURIComponent(data.title)}&body=${encodeURIComponent(
@@ -240,7 +251,7 @@ export default async function Post({ params }: PostProps) {
               rel="noopener noreferrer"
               className="flex items-center gap-2 group"
             >
-              <Icons.Envelope className="w-5 h-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
+              <Envelope className="w-5 h-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
             </Link>
           </div>
         </div>

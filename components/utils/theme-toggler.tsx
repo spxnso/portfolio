@@ -1,15 +1,14 @@
 "use client";
 
 import * as React from "react";
-import { BsFillMoonStarsFill } from "react-icons/bs";
-import { TbSunFilled } from "react-icons/tb";
+
 import { useCallback, useEffect, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 
 import { cn } from "@/lib/utils";
+import { MoonIcon, SunIcon } from "@phosphor-icons/react";
 
-interface AnimatedThemeTogglerProps
-  extends React.ComponentPropsWithoutRef<"button"> {
+interface AnimatedThemeTogglerProps extends React.ComponentPropsWithoutRef<"button"> {
   duration?: number;
 }
 
@@ -82,7 +81,7 @@ export const AnimatedThemeToggler = ({
       className={cn(className)}
       {...props}
     >
-      {isDark ? <TbSunFilled /> : <BsFillMoonStarsFill />}
+      {isDark ? <SunIcon /> : <MoonIcon />}
       <span className="sr-only">Toggle theme</span>
     </button>
   );

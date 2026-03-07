@@ -1,11 +1,11 @@
-import Icons from "@/components/utils/icons";
+import { Youtube } from "@/components/utils/icons";
 import { defineField, defineType } from "sanity";
 
 export const youtubeType = defineType({
   name: "youtube",
   title: "Youtube Video",
   type: "object",
-  icon: Icons.Youtube,
+  icon: Youtube,
   fields: [
     defineField({
       name: "url",

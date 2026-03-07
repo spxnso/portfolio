@@ -1,11 +1,11 @@
 import { defineType, defineField } from "sanity";
-import Icons from "@/components/utils/icons";
+import { XMark } from "@/components/utils/icons";
 
 export const tweetType = defineType({
   name: "tweet",
   title: "Tweet Embed",
   type: "object",
-  icon: Icons.XMark,
+  icon: XMark,
   fields: [
     defineField({
       name: "url",

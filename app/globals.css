@@ -192,6 +192,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  html {
+    @apply font-mono;
+  }
 }
 
 ::view-transition-old(root),

@@ -58,7 +58,7 @@ export default function Quiz({ question, options, solution }: QuizProps) {
                 <li
                   key={index}
                   className={cn(
-                    "p-2 border rounded-md cursor-pointer transition-colors",
+                    "p-2 border rounded-none cursor-pointer transition-colors",
                     {
                       "bg-muted": isSelected && !submitted,
                       " border-green-500 text-green-500":
@@ -76,7 +76,7 @@ export default function Quiz({ question, options, solution }: QuizProps) {
           </ul>
 
           <Button
-            className="mt-4 rounded-md"
+            className="mt-4 rounded-none"
             onClick={handleSubmit}
             disabled={submitted || selectedIndices.length === 0}
           >

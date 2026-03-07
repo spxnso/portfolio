@@ -23,7 +23,7 @@ function TechList({ items }: TechListProps) {
         const iconUrl = `https://cdn.simpleicons.org/${slug}/${slug}`;
 
         return (
-          <div key={item.title} className="flex items-start gap-3 rounded-md">
+          <div key={item.title} className="flex items-start gap-3 rounded-none">
             <div className="w-8 h-8 relative flex-shrink-0">
               <Image
                 src={iconUrl}
@@ -59,12 +59,12 @@ export default function AboutPage({
         <aside className="flex flex-col gap-y-8 sticky top-10 py-6 lg:px-6 px-0">
           <section className="pb-6">
             <address className="flex flex-col items-center mt-4 not-italic space-y-2">
-              <div className="relative w-32 h-32 rounded-md overflow-hidden">
+              <div className="relative w-32 h-32 rounded-none overflow-hidden">
                 <Image
                   src={about.profileImage.image}
                   alt={about.profileImage.alt || author.name}
                   fill
-                  className="object-cover rounded-md"
+                  className="object-cover rounded-none"
                 />
               </div>
               <div className="text-center flex gap-4 flex-col">

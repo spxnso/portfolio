@@ -1,10 +1,9 @@
-import { TbLoader2 } from "react-icons/tb";
-
 import { cn } from "@/lib/utils";
+import { CircleNotchIcon } from "@phosphor-icons/react";
 
 function Spinner({ className, ...props }: React.ComponentProps<"svg">) {
   return (
-    <TbLoader2
+    <CircleNotchIcon
       role="status"
       aria-label="Loading"
       className={cn("size-4 animate-spin", className)}
