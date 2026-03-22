@@ -23,7 +23,7 @@ const CustomPortableText: PortableTextComponents = {
   },
   block: {
     normal: ({ children }) => (
-      <p className="mt-4 mb-6 text-justify leading-relaxed text-base sm:text-lg text-foreground">
+      <p className="mt-4 mb-6 leading-relaxed text-base sm:text-lg text-foreground">
         {children}
       </p>
     ),
