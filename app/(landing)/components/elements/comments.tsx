@@ -9,8 +9,8 @@ import {
 import { useTheme } from "next-themes";
 
 export default function Comments() {
-  const { theme } = useTheme();
-  const giscusTheme = theme === "dark" ? "transparent_dark" : "light";
+  const { resolvedTheme } = useTheme();
+  const giscusTheme = resolvedTheme === "dark" ? "transparent_dark" : "light";
   return (
     <Giscus
       repo={giscusRepo}

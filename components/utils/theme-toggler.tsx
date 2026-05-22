@@ -2,8 +2,9 @@
 
 import * as React from "react";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef } from "react";
 import { flushSync } from "react-dom";
+import { useTheme } from "next-themes";
 
 import { cn } from "@/lib/utils";
 import { MoonIcon, SunIcon } from "@phosphor-icons/react";
@@ -17,34 +18,17 @@ export const AnimatedThemeToggler = ({
   duration = 400,
   ...props
 }: AnimatedThemeTogglerProps) => {
-  const [isDark, setIsDark] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
   const buttonRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    const updateTheme = () => {
-      setIsDark(document.documentElement.classList.contains("dark"));
-    };
-
-    updateTheme();
-
-    const observer = new MutationObserver(updateTheme);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  const isDark = resolvedTheme === "dark";
 
   const toggleTheme = useCallback(async () => {
     if (!buttonRef.current) return;
 
     await document.startViewTransition(() => {
       flushSync(() => {
-        const newTheme = !isDark;
-        setIsDark(newTheme);
-        document.documentElement.classList.toggle("dark");
-        localStorage.setItem("theme", newTheme ? "dark" : "light");
+        const newTheme = isDark ? "light" : "dark";
+        setTheme(newTheme);
       });
     }).ready;
 
@@ -57,7 +41,7 @@ export const AnimatedThemeToggler = ({
       Math.max(top, window.innerHeight - top),
     );
 
-    const animation = document.documentElement.animate(
+    document.documentElement.animate(
       {
         clipPath: [
           `circle(0px at ${x}px ${y}px)`,
@@ -70,10 +54,7 @@ export const AnimatedThemeToggler = ({
         pseudoElement: "::view-transition-new(root)",
       },
     );
-    animation.onfinish = () => {
-      window.location.reload();
-    };
-  }, [isDark, duration]);
+  }, [isDark, duration, setTheme]);
   return (
     <button
       ref={buttonRef}
