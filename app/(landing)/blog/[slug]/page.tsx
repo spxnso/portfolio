@@ -24,6 +24,9 @@ import {
   Whatsapp,
   Reddit,
   Envelope,
+  Slash,
+  Signal,
+  Element,
 } from "@/components/utils/icons";
 
 import { PortableText } from "@portabletext/react";
@@ -41,6 +44,7 @@ import Main from "@/components/elements/main";
 import P from "@/components/elements/p";
 import Section from "@/components/elements/section";
 import { sanityFetch } from "@/lib/sanity.live";
+import { EarSlashIcon } from "@phosphor-icons/react";
 
 export interface PostProps {
   params: {
@@ -105,14 +109,24 @@ export default async function Post({ params }: PostProps) {
     <Main>
       <Breadcrumb>
         <BreadcrumbList>
-          <BreadcrumbEllipsis />
-          <BreadcrumbSeparator />
-          <BreadcrumbLink asChild>
-            <Link href="/blog">Blog</Link>
-          </BreadcrumbLink>
-          <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>{data.title}</BreadcrumbPage>
+            <BreadcrumbLink asChild>
+              <Link href="/">~</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator>/</BreadcrumbSeparator>
+          <BreadcrumbLink asChild>
+            <Link href="/blog">blog</Link>
+          </BreadcrumbLink>
+          <BreadcrumbSeparator>/</BreadcrumbSeparator>
+          <BreadcrumbItem>
+            <BreadcrumbPage>
+              {String(data.title)
+                .toLowerCase()
+                .trim()
+                .replace(/\s+/g, "-")
+                .replace(/-+/g, "-")}
+            </BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
@@ -190,70 +204,6 @@ export default async function Post({ params }: PostProps) {
               </div>
             )}
           </div>
-
-          <div className="flex flex-wrap items-center gap-3 mt-4">
-            <span className="text-muted-foreground mr-2">Share:</span>
-            <Link
-              href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
-                `https://spxnso.dev/blog/${data.slug}`,
-              )}&text=${encodeURIComponent(data.title)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 group"
-            >
-              <X className="w-5 h-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
-            </Link>
-            <Link
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-                `https://spxnso.dev/blog/${data.slug}`,
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 group"
-            >
-              <Linkedin className="w-5 h-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
-            </Link>
-            <Link
-              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-                `https://spxnso.dev/blog/${data.slug}`,
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 group"
-            >
-              <Facebook className="w-5 h-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
-            </Link>
-            <Link
-              href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
-                `${data.title} — https://spxnso.dev/blog/${data.slug}`,
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 group"
-            >
-              <Whatsapp className="w-5 h-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
-            </Link>
-            <Link
-              href={`https://www.reddit.com/submit?url=${encodeURIComponent(
-                `https://spxnso.dev/blog/${data.slug}`,
-              )}&title=${encodeURIComponent(data.title)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 group"
-            >
-              <Reddit className="w-5 h-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
-            </Link>
-            <Link
-              href={`mailto:?subject=${encodeURIComponent(data.title)}&body=${encodeURIComponent(
-                `Check out this post: https://spxnso.dev/blog/${data.slug}`,
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 group"
-            >
-              <Envelope className="w-5 h-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
-            </Link>
-          </div>
         </div>
       </header>
 
@@ -264,7 +214,7 @@ export default async function Post({ params }: PostProps) {
       <Section id="comments">
         <SectionHeading
           title="Share your thoughts about this post"
-          eyebrow="Comments"
+          eyebrow="#comments"
         />
         <Comments />
       </Section>

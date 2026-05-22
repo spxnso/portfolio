@@ -114,20 +114,20 @@ export default function AboutPage({
 
         <div className="flex flex-col gap-8">
           <Section>
-            <SectionHeading eyebrow="Languages" title="What I code with" />
+            <SectionHeading eyebrow="#languages" title="What I code with" />
             <TechList items={about.languages} />
           </Section>
 
           <Section>
             <SectionHeading
-              eyebrow="Frameworks"
+              eyebrow="#frameworks"
               title="What makes my life easier"
             />
             <TechList items={about.frameworks} />
           </Section>
 
           <Section>
-            <SectionHeading eyebrow="Tools" title="What I use daily" />
+            <SectionHeading eyebrow="#tools" title="What I use daily" />
             <TechList items={about.tools} />
           </Section>
         </div>

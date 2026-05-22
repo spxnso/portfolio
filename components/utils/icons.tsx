@@ -11,7 +11,6 @@ import {
   RedditLogoIcon,
   EnvelopeIcon,
   LinkIcon,
-  LinkSimpleIcon,
   YoutubeLogoIcon,
   CalendarDotIcon,
   ClockIcon,
@@ -35,7 +34,9 @@ import {
   CheckCircleIcon,
   HouseIcon,
   ArrowSquareOutIcon,
+  ChatSlashIcon,
 } from "@phosphor-icons/react";
+import { SiElement } from "react-icons/si";
 import { FaNpm } from "react-icons/fa";
 import { FaSignalMessenger } from "react-icons/fa6";
 
@@ -45,6 +46,7 @@ export const Linkedin = LinkedinLogoIcon;
 export const Npm = FaNpm;
 export const Steam = SteamLogoIcon;
 export const Signal = FaSignalMessenger;
+export const Element = SiElement;
 export const X = TwitterLogoIcon;
 export const Facebook = FacebookLogoIcon;
 export const Whatsapp = WhatsappLogoIcon;
@@ -74,6 +76,7 @@ export const Alert = WarningCircleIcon;
 export const Info = InfoIcon;
 export const CheckCircle = CheckCircleIcon;
 export const Home = HouseIcon;
+export const Slash = ChatSlashIcon;
 
 const Icons = {
   Github,
@@ -82,6 +85,7 @@ const Icons = {
   Npm,
   Steam,
   Signal,
+  Element,
   X,
   Facebook,
   Whatsapp,

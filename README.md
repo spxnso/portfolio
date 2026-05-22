@@ -41,16 +41,16 @@ Follow this guide to get this site running locally
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/spxnso/portfolio.git
+git clone https://github.com/spxnso/portfolio.git
 
 # Go into the repository
-$ cd portfolio
+cd portfolio
 
 # Install dependencies
-$ pnpm install
+pnpm install
 
 # Run the app
-$ pnpm run dev
+pnpm run dev
 ```
 
 > **Note**

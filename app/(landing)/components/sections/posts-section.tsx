@@ -16,7 +16,7 @@ export default function PostsSection({ posts }: { posts: PostType[] }) {
   return (
     <Section className="flex flex-col gap-8 text-left">
       <div className="flex items-center justify-between">
-        <SectionHeading title="Latest posts" eyebrow="Writing" />
+        <SectionHeading title="Latest posts" eyebrow="#writing" />
         <Link href="/blog" className="hover:text-primary flex items-center">
           View All
           <ArrowRightIcon className="ml-2 w-4 h-4" />

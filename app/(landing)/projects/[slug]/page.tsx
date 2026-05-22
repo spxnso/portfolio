@@ -84,14 +84,16 @@ export default async function Project({ params }: ProjectProps) {
     <Main>
       <Breadcrumb>
         <BreadcrumbList>
-          <BreadcrumbEllipsis />
-          <BreadcrumbSeparator />
           <BreadcrumbLink asChild>
-            <Link href="/projects">Projects</Link>
+            <Link href="/">~</Link>
           </BreadcrumbLink>
-          <BreadcrumbSeparator />
+          <BreadcrumbSeparator>/</BreadcrumbSeparator>
+          <BreadcrumbLink asChild>
+            <Link href="/projects">projects</Link>
+          </BreadcrumbLink>
+          <BreadcrumbSeparator>/</BreadcrumbSeparator>
           <BreadcrumbItem>
-            <BreadcrumbPage>{project.name}</BreadcrumbPage>
+            <BreadcrumbPage>{project.name.toLowerCase()}</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
@@ -173,7 +175,7 @@ export default async function Project({ params }: ProjectProps) {
       <Section id="comments">
         <SectionHeading
           title="Share your thoughts about this project"
-          eyebrow="Comments"
+          eyebrow="#comments"
         />
         <Comments />
       </Section>

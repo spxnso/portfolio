@@ -19,7 +19,7 @@ export default function ProjectsSection({
   return (
     <Section>
       <SectionHeading
-        eyebrow="Highlighted projects"
+        eyebrow="#highlighted-projects"
         title="What I've worked on"
       />
 
